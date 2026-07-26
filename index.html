@@ -23,6 +23,9 @@
   
   <link rel="stylesheet" href="/css/styles.css">
   
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
   <!-- Structured Data: Dentist/LocalBusiness -->
   <script type="application/ld+json">
   {
@@ -62,228 +65,686 @@
     }
   }
   </script>
+
+  <style>
+    /* Design Overrides to match Base44 Builder exact specs */
+    :root {
+      --primary: #0D9488;       /* Teal */
+      --primary-dark: #0f766e;  /* Dark Teal */
+      --accent: #e0f2f1;        /* Light mint */
+      --teal: #0D9488;
+      --teal-dark: #0f766e;
+      --teal-light: #e0f2f1;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    /* Override Header classes to support custom logo and elements */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .custom-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .custom-logo:hover {
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(31,149,137,0.25);
+      border: 2px solid var(--teal);
+    }
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #000000;
+      line-height: 1.1;
+    }
+    .logo-subtitle {
+      font-size: 0.75rem;
+      color: #6b7280;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    /* Active Home link styled: underlined teal */
+    nav ul li a {
+      font-weight: 600;
+      color: #374151 !important;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    nav ul li a:hover {
+      color: var(--teal) !important;
+      text-decoration: none;
+    }
+    nav ul li a.active {
+      color: var(--teal) !important;
+      border-bottom: 2px solid var(--teal);
+      padding-bottom: 4px;
+    }
+
+    /* Header phone & CTA button */
+    .header-phone-btn {
+      color: var(--teal);
+      border: 1px solid var(--teal);
+      border-radius: 9999px;
+      padding: 8px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .header-phone-btn:hover {
+      background: var(--teal-light);
+      text-decoration: none;
+    }
+    .header-consult-btn {
+      background: var(--teal);
+      color: var(--white) !important;
+      border-radius: 9999px;
+      padding: 10px 24px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+    .header-consult-btn:hover {
+      background: var(--teal-dark);
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    /* Custom Serif styles */
+    .serif-italic-teal {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      color: var(--teal);
+      font-weight: 700;
+    }
+    .serif-italic-grey {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+    }
+
+    /* Hero Layout */
+    .hero-custom {
+      position: relative;
+      padding: 100px 0 80px 0;
+      color: var(--white);
+      text-align: left;
+      overflow: hidden;
+      min-height: 600px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url("https://media.base44.com/images/public/6a5301f7d191f37052971c5e/7f4e85dea_picassodental.jpg") center center / cover no-repeat;
+      z-index: 0;
+    }
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15,118,110,0.88) 0%, rgba(10,48,60,0.82) 60%, rgba(0,0,0,0.65) 100%);
+      z-index: 1;
+    }
+    .hero-custom > .container {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .hero-pill {
+      background: rgba(255,255,255,0.15);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    .hero-headline {
+      font-size: 3.5rem;
+      line-height: 1.15;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    .hero-subheadline {
+      font-size: 1.75rem;
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+    .hero-paragraph {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .hero-stat-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255,255,255,0.12);
+      border-left: 4px solid var(--teal);
+      padding: 16px 24px;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 32px;
+      width: 100%;
+      backdrop-filter: blur(8px);
+    }
+    .hero-stat-large {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: var(--teal);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    .btn-pill-solid {
+      background: var(--teal);
+      color: var(--white) !important;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .btn-pill-solid:hover {
+      background: var(--teal-dark);
+      text-decoration: none;
+      color: var(--white);
+    }
+    .btn-pill-outline {
+      background: transparent;
+      color: var(--teal) !important;
+      border: 2px solid var(--teal);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .btn-pill-outline:hover {
+      background: var(--teal-light);
+      text-decoration: none;
+    }
+    .hero-right img {
+      border-radius: 16px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* Feature Grid */
+    .features-container {
+      padding: 40px 0;
+      border-top: 1px solid #f1f5f9;
+      border-bottom: 1px solid #f1f5f9;
+      background: #f8fafc;
+    }
+    .features-grid-custom {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .feature-item-custom {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .feature-icon-wrapper {
+      background: var(--teal-light);
+      color: var(--teal);
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .feature-text-custom {
+      font-weight: 700;
+      color: #1e293b;
+      font-size: 0.95rem;
+      line-height: 1.3;
+    }
+
+    .desktop-only {
+      display: inline;
+    }
+
+    /* Responsive Overrides */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      .hero-left {
+        align-items: center;
+      }
+      .hero-headline {
+        font-size: 2.75rem;
+      }
+      .hero-subheadline {
+        font-size: 1.5rem;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .features-grid-custom {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+    @media (max-width: 640px) {
+      .desktop-only {
+        display: none;
+      }
+      .header-phone-btn {
+        padding: 8px;
+      }
+      .header-consult-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+      }
+      .hero-headline {
+        font-size: 2.25rem;
+      }
+      .hero-subheadline {
+        font-size: 1.25rem;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      .btn-pill-solid, .btn-pill-outline {
+        width: 100%;
+      }
+      .features-grid-custom {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <a href="/" class="logo">Dr. Moguel<span> Implants</span></a>
+    <a href="/" class="custom-logo">
+      <div class="logo-icon">
+        <img src="https://media.base44.com/images/public/6a5301f7d191f37052971c5e/7f4e85dea_picassodental.jpg" alt="Dr. Jose Moguel Dental Logo">
+      </div>
+      <div class="logo-text">
+        <span class="logo-title">Dr. Jose Moguel</span>
+        <span class="logo-subtitle">Dental Implants · Los Algodones</span>
+      </div>
+    </a>
     <nav>
       <ul>
+        <li><a href="/" class="active">Home</a></li>
         <li><a href="/treatments">Treatments</a></li>
-        <li><a href="/cost-calculator">Cost Calculator</a></li>
-        <li><a href="/treatment-comparison">Compare Options</a></li>
-        <li><a href="/patient-stories">Patient Stories</a></li>
-        <li><a href="/border-crossing-checklist">Border Guide</a></li>
+        <li><a href="/about">About</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
-    <a href="tel:+19283744575" class="phone-cta">📞 Call 928-374-4575</a>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="tel:+19283744575" class="header-phone-btn" title="Call Now">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="desktop-only">928-374-4575</span>
+      </a>
+      <a href="/contact" class="header-consult-btn">Free Consultation</a>
+    </div>
     <button class="mobile-menu-btn">☰</button>
   </div>
 </header>
 
-<!-- Hero -->
-<section class="hero">
-  <h1>Dental Implants in Los Algodones, Mexico</h1>
-  <p>Board-certified periodontist Dr. José Moguel has placed over 17,000 dental implants in 38 years. Save 60-70% compared to US prices — without compromising on quality.</p>
-  <a href="/cost-calculator" class="hero-cta">Get Your Free Cost Estimate →</a>
-  <div class="hero-stats">
-    <div class="hero-stat"><div class="num">38</div><div class="label">Years Experience</div></div>
-    <div class="hero-stat"><div class="num">17,000+</div><div class="label">Implants Placed</div></div>
-    <div class="hero-stat"><div class="num">5.0★</div><div class="label">847 Reviews</div></div>
-    <div class="hero-stat"><div class="num">70%</div><div class="label">Avg. Savings</div></div>
-  </div>
-</section>
-
-<!-- Why Choose Dr. Moguel -->
-<section>
+<!-- Hero Section -->
+<section class="hero-custom">
+  <div class="hero-bg"></div>
+  <div class="hero-bg-overlay"></div>
   <div class="container">
-    <h2>Why Patients Choose Dr. Moguel</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>🦷 3-ON-8™ Patented Protocol</h3>
-        <p>Dr. Moguel created the 3-ON-8 protocol — using 8 implants per arch for maximum stability and longevity, far exceeding All-on-4 results.</p>
-        <a href="/treatments/3on8" class="card-link">Learn about 3-ON-8 →</a>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <span class="hero-pill">LOS ALGODONES, MEXICO</span>
+        <h1 class="hero-headline">Dental Implants in<br><span class="serif-italic-teal">Los Algodones, Mexico</span></h1>
+        <p class="hero-subheadline serif-italic-grey">The architecture of your new smile</p>
+        <p class="hero-paragraph">US-standard dental implants at a fraction of the cost. Dr. Jose Moguel has transformed over 17,000 smiles in 38 years — yours could be next.</p>
+        
+        <div class="hero-stat-box">
+          <div class="hero-stat-large">70%</div>
+          <div class="hero-stat-label">Average savings<br>compared to US prices</div>
+        </div>
+        
+        <div class="hero-buttons">
+          <a href="/contact" class="btn-pill-solid">Get Your Free Consultation</a>
+          <a href="tel:+19283744575" class="btn-pill-outline">Call Now</a>
+        </div>
       </div>
-      <div class="card">
-        <h3>🎓 ADA Board Certified</h3>
-        <p>Certified by both the American Dental Association (ADA) and the Asociación Dental Mexicana (ADM). US and European grade titanium implants only.</p>
-        <a href="/about" class="card-link">About Dr. Moguel →</a>
-      </div>
-      <div class="card">
-        <h3>💰 Transparent Pricing</h3>
-        <p>No hidden fees. No surprises. Get your exact cost estimate in 2 minutes with our free cost calculator. Save $10,000-$20,000 vs US prices.</p>
-        <a href="/cost-calculator" class="card-link">Calculate My Costs →</a>
-      </div>
-      <div class="card">
-        <h3>🚶 Steps From the US Border</h3>
-        <p>Located in Los Algodones, Baja California — a 5-minute walk from the US border. 3,000+ Americans cross daily for dental care.</p>
-        <a href="/border-crossing-checklist" class="card-link">Border Crossing Guide →</a>
-      </div>
-      <div class="card">
-        <h3>⭐ Lifetime Warranty</h3>
-        <p>Every implant is backed by a lifetime warranty. FDA-approved implant systems from Nobel Biocare, Straumann, and MegaGen.</p>
-      </div>
-      <div class="card">
-        <h3>🏥 Free Virtual Consultation</h3>
-        <p>Not ready to travel? Get a free virtual assessment with Dr. Moguel via WhatsApp video call. Send your X-rays and get a treatment plan.</p>
-        <a href="/contact" class="card-link">Book Free Consultation →</a>
+      <div class="hero-right">
+        <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 36px; color: white; max-width: 400px;">
+          <img src="https://media.base44.com/images/public/6a5301f7d191f37052971c5e/7f4e85dea_picassodental.jpg" alt="World-Class Dental Implants" style="border-radius: 14px; width: 100%; height: 220px; object-fit: cover; margin-bottom: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.1); border-radius: 10px; padding: 12px 16px;">
+              <span style="font-size: 1.5rem;">🏆</span>
+              <div><div style="font-weight: 700; font-size: 0.95rem;">ADA &amp; ADM Board Certified</div><div style="font-size: 0.8rem; opacity: 0.8;">US-Standard Care in Mexico</div></div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.1); border-radius: 10px; padding: 12px 16px;">
+              <span style="font-size: 1.5rem;">⭐</span>
+              <div><div style="font-weight: 700; font-size: 0.95rem;">5.0 Stars · 847 Reviews</div><div style="font-size: 0.8rem; opacity: 0.8;">Verified Patient Reviews</div></div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.1); border-radius: 10px; padding: 12px 16px;">
+              <span style="font-size: 1.5rem;">🛡️</span>
+              <div><div style="font-weight: 700; font-size: 0.95rem;">Lifetime Warranty</div><div style="font-size: 0.8rem; opacity: 0.8;">On all implant procedures</div></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Cost Comparison -->
-<section style="background: var(--light-gray);">
+<!-- Feature Grid Section -->
+<div class="features-container">
   <div class="container">
-    <h2>Mexico vs US Dental Implant Cost Comparison</h2>
-    <table class="cost-table">
-      <thead>
-        <tr>
-          <th>Procedure</th>
-          <th>US Cost</th>
-          <th>Mexico Cost</th>
-          <th>You Save</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="/treatments/single-tooth-implant">Single Tooth Implant</a></td>
-          <td>$3,500 - $5,000</td>
-          <td>$750 - $1,500</td>
-          <td class="save">Up to 75%</td>
-        </tr>
-        <tr>
-          <td><a href="/treatments/allon4">All-on-4 (per arch)</a></td>
-          <td>$20,000 - $35,000</td>
-          <td>$8,000 - $12,000</td>
-          <td class="save">Up to 70%</td>
-        </tr>
-        <tr>
-          <td><a href="/treatments/allon6">All-on-6 (per arch)</a></td>
-          <td>$25,000 - $40,000</td>
-          <td>$12,000 - $16,000</td>
-          <td class="save">Up to 65%</td>
-        </tr>
-        <tr>
-          <td><a href="/treatments/3on8">3-ON-8 (per arch)</a></td>
-          <td>$30,000 - $45,000</td>
-          <td>$16,000 - $20,000</td>
-          <td class="save">Up to 60%</td>
-        </tr>
-        <tr>
-          <td><a href="/treatments/full-mouth-reconstruction">Full Mouth Reconstruction</a></td>
-          <td>$35,000 - $50,000</td>
-          <td>$14,000 - $22,000</td>
-          <td class="save">Up to 65%</td>
-        </tr>
-        <tr>
-          <td><a href="/treatments/bone-grafting">Bone Grafting</a></td>
-          <td>$2,000 - $3,500</td>
-          <td>$500 - $800</td>
-          <td class="save">Up to 77%</td>
-        </tr>
-        <tr>
-          <td><a href="/treatments/sinus-lift">Sinus Lift</a></td>
-          <td>$2,500 - $4,000</td>
-          <td>$600 - $900</td>
-          <td class="save">Up to 78%</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="text-align: center; margin-top: 24px;">
-      <a href="/cost-calculator" style="display: inline-block; background: var(--primary); color: var(--white); padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none;">Get Your Personalized Estimate →</a>
-    </p>
-  </div>
-</section>
-
-<!-- Treatments -->
-<section>
-  <div class="container">
-    <h2>Dental Implant Treatments</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>All-on-4 Dental Implants</h3>
-        <p>4 implants per arch supporting a full set of fixed teeth. The most affordable full-arch solution.</p>
-        <a href="/treatments/allon4" class="card-link">Learn More →</a>
+    <div class="features-grid-custom">
+      <!-- Clock Icon -->
+      <div class="feature-item-custom">
+        <div class="feature-icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <div class="feature-text-custom">38+ Years Experience</div>
       </div>
-      <div class="card">
-        <h3>All-on-6 Dental Implants</h3>
-        <p>6 implants per arch for better load distribution and longer-lasting results than All-on-4.</p>
-        <a href="/treatments/allon6" class="card-link">Learn More →</a>
+      
+      <!-- Badge/Ribbon Icon -->
+      <div class="feature-item-custom">
+        <div class="feature-icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+        </div>
+        <div class="feature-text-custom">Board-Certified Specialist</div>
       </div>
-      <div class="card">
-        <h3>3-ON-8™ Protocol</h3>
-        <p>Dr. Moguel's patented protocol using 8 implants for maximum stability. The gold standard for full-arch restoration.</p>
-        <a href="/treatments/3on8" class="card-link">Learn More →</a>
+      
+      <!-- Hexagon/Shield Icon -->
+      <div class="feature-item-custom">
+        <div class="feature-icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <div class="feature-text-custom">Lifetime Warranty</div>
       </div>
-      <div class="card">
-        <h3>Single Tooth Implants</h3>
-        <p>Replace a single missing tooth without damaging adjacent teeth. Natural look and feel.</p>
-        <a href="/treatments/single-tooth-implant" class="card-link">Learn More →</a>
-      </div>
-      <div class="card">
-        <h3>Implant-Supported Dentures</h3>
-        <p>Snap-on dentures secured by implants. No more slipping, no more adhesive.</p>
-        <a href="/treatments/implant-supported-dentures" class="card-link">Learn More →</a>
-      </div>
-      <div class="card">
-        <h3>Zirconia Teeth</h3>
-        <p>Metal-free, biocompatible, and incredibly natural-looking. The premium choice for implant restorations.</p>
-        <a href="/treatments/zirconia-teeth" class="card-link">Learn More →</a>
+      
+      <!-- Check-mark Icon -->
+      <div class="feature-item-custom">
+        <div class="feature-icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <div class="feature-text-custom">17,000+ Implants Placed</div>
       </div>
     </div>
-    <p style="text-align: center; margin-top: 24px;">
-      <a href="/treatments" style="font-weight: 700;">View All Treatments →</a>
-    </p>
-  </div>
-</section>
-
-<!-- Treatment Comparison CTA -->
-<section style="background: var(--light-gray);">
-  <div class="container">
-    <h2>Not Sure Which Treatment Is Right for You?</h2>
-    <p>Compare All-on-4, All-on-6, and 3-ON-8 side by side — costs, recovery time, durability, and bone requirements.</p>
-    <p style="margin-top: 16px;">
-      <a href="/treatment-comparison" style="display: inline-block; background: var(--primary); color: var(--white); padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none;">Compare Treatment Options →</a>
-    </p>
-  </div>
-</section>
-
-<!-- Insurance -->
-<section>
-  <div class="container">
-    <h2>Did You Know Your Insurance May Cover Treatment in Mexico?</h2>
-    <p>Many US dental insurance plans reimburse treatment performed in Mexico. We provide all documentation in English with standard CDT procedure codes so you can file your claim easily.</p>
-    <p style="margin-top: 16px;">
-      <a href="/insurance-claim-guide" style="font-weight: 700;">Read Our Insurance Claim Guide →</a>
-    </p>
-  </div>
-</section>
-
-<!-- CTA Bar -->
-<div class="cta-bar">
-  <div class="container">
-    <h2>Ready to Save 70% on Dental Implants?</h2>
-    <p style="margin-top: 12px; font-size: 1.1rem;">Get your free cost estimate in 2 minutes, or call us directly.</p>
-    <a href="/cost-calculator">Get Free Cost Estimate</a>
-    <p style="margin-top: 16px;">Or call <a href="tel:+19283744575" style="color: var(--green); font-weight: 700; font-size: 1.2rem;">928-374-4575</a></p>
   </div>
 </div>
+
+<!-- Cost Comparison -->
+<section style="background: #f8fafc; padding: 64px 0;">
+  <div class="container">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 40px auto;">
+      <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight: 700; color: #0f172a; margin-bottom: 12px;">Mexico vs US Dental Implant Cost Comparison</h2>
+      <p style="color: #64748b; font-size: 1.1rem;">See how much you save on FDA-approved materials by visiting Dr. Moguel in Los Algodones.</p>
+    </div>
+    
+    <div style="overflow-x: auto; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03); background: white;">
+      <table class="cost-table" style="margin: 0; width: 100%;">
+        <thead>
+          <tr style="background: var(--teal);">
+            <th style="padding: 16px; font-weight: 600; color: white;">Procedure</th>
+            <th style="padding: 16px; font-weight: 600; color: white;">US Cost</th>
+            <th style="padding: 16px; font-weight: 600; color: white;">Mexico Cost</th>
+            <th style="padding: 16px; font-weight: 600; color: white; text-align: right;">You Save</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 16px; font-weight: 500;"><a href="/treatments/single-tooth-implant" style="color: #0f172a; font-weight: 600;">Single Tooth Implant</a></td>
+            <td style="padding: 16px; color: #64748b; text-decoration: line-through;">$3,500 - $5,000</td>
+            <td style="padding: 16px; font-weight: 700; color: var(--teal);">$750 - $1,500</td>
+            <td style="padding: 16px; font-weight: 800; color: #10b981; text-align: right;">Up to 75%</td>
+          </tr>
+          <tr>
+            <td style="padding: 16px; font-weight: 500;"><a href="/treatments/allon4" style="color: #0f172a; font-weight: 600;">All-on-4 (per arch)</a></td>
+            <td style="padding: 16px; color: #64748b; text-decoration: line-through;">$20,000 - $35,000</td>
+            <td style="padding: 16px; font-weight: 700; color: var(--teal);">$8,000 - $12,000</td>
+            <td style="padding: 16px; font-weight: 800; color: #10b981; text-align: right;">Up to 70%</td>
+          </tr>
+          <tr>
+            <td style="padding: 16px; font-weight: 500;"><a href="/treatments/3on8" style="color: #0f172a; font-weight: 600;">3-ON-8 (per arch)</a></td>
+            <td style="padding: 16px; color: #64748b; text-decoration: line-through;">$30,000 - $45,000</td>
+            <td style="padding: 16px; font-weight: 700; color: var(--teal);">$16,000 - $20,000</td>
+            <td style="padding: 16px; font-weight: 800; color: #10b981; text-align: right;">Up to 60%</td>
+          </tr>
+          <tr>
+            <td style="padding: 16px; font-weight: 500;"><a href="/treatments/full-mouth-reconstruction" style="color: #0f172a; font-weight: 600;">Full Mouth Reconstruction</a></td>
+            <td style="padding: 16px; color: #64748b; text-decoration: line-through;">$35,000 - $50,000</td>
+            <td style="padding: 16px; font-weight: 700; color: var(--teal);">$14,000 - $22,000</td>
+            <td style="padding: 16px; font-weight: 800; color: #10b981; text-align: right;">Up to 65%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div style="text-align: center; margin-top: 32px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="/cost-calculator" class="btn-pill-solid">Use the Cost Calculator</a>
+      <a href="/treatment-comparison" class="btn-pill-outline">Compare All Treatments</a>
+    </div>
+  </div>
+</section>
+
+<!-- Treatments Section -->
+<section style="padding: 64px 0; background: white;">
+  <div class="container">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 48px auto;">
+      <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight: 700; color: #0f172a; margin-bottom: 12px;">Premium Implant Solutions</h2>
+      <p style="color: #64748b; font-size: 1.1rem;">Restoring function, beauty, and confidence with world-class dental engineering.</p>
+    </div>
+    
+    <div class="card-grid">
+      <!-- Card 1: All-on-4 -->
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 16px; border: 1px solid #e2e8f0; padding: 32px; transition: transform 0.2s, box-shadow 0.2s;">
+        <div>
+          <div style="background: var(--teal-light); color: var(--teal); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px;">🦷</div>
+          <h3 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin-bottom: 12px; margin-top: 0;">All-on-4® Dental Implants</h3>
+          <p style="color: #64748b; line-height: 1.6; margin-bottom: 20px; font-size: 0.95rem;">An efficient full-arch solution using four strategically placed implants to secure a full set of permanent, natural-looking teeth in a single day.</p>
+        </div>
+        <a href="/treatments/allon4" class="card-link" style="color: var(--teal); font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">Learn about All-on-4 &rarr;</a>
+      </div>
+      
+      <!-- Card 2: 3-ON-8 -->
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 16px; border: 1px solid #e2e8f0; padding: 32px; transition: transform 0.2s, box-shadow 0.2s;">
+        <div>
+          <div style="background: var(--teal-light); color: var(--teal); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px;">👑</div>
+          <h3 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin-bottom: 12px; margin-top: 0;">3-ON-8™ Patented Protocol</h3>
+          <p style="color: #64748b; line-height: 1.6; margin-bottom: 20px; font-size: 0.95rem;">Dr. Moguel’s advanced signature protocol utilizing 8 implants per arch. Maximum bone preservation, superior load distribution, and unparalleled stability.</p>
+        </div>
+        <a href="/treatments/3on8" class="card-link" style="color: var(--teal); font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">Learn about 3-ON-8 &rarr;</a>
+      </div>
+      
+      <!-- Card 3: Single Tooth Implant -->
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 16px; border: 1px solid #e2e8f0; padding: 32px; transition: transform 0.2s, box-shadow 0.2s;">
+        <div>
+          <div style="background: var(--teal-light); color: var(--teal); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px;">💎</div>
+          <h3 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin-bottom: 12px; margin-top: 0;">Single Tooth Implant</h3>
+          <p style="color: #64748b; line-height: 1.6; margin-bottom: 20px; font-size: 0.95rem;">Perfectly replace a single missing tooth from root to crown. Blends seamlessly with your natural teeth without altering adjacent tooth structures.</p>
+        </div>
+        <a href="/treatments/single-tooth-implant" class="card-link" style="color: var(--teal); font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">Learn about Single &rarr;</a>
+      </div>
+      
+      <!-- Card 4: Full Mouth Reconstruction -->
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 16px; border: 1px solid #e2e8f0; padding: 32px; transition: transform 0.2s, box-shadow 0.2s;">
+        <div>
+          <div style="background: var(--teal-light); color: var(--teal); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px;">✨</div>
+          <h3 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin-bottom: 12px; margin-top: 0;">Full Mouth Reconstruction</h3>
+          <p style="color: #64748b; line-height: 1.6; margin-bottom: 20px; font-size: 0.95rem;">A customized, comprehensive recovery plan combining implants, crowns, and bridges to fully restore chewing power, bite alignment, and smile aesthetics.</p>
+        </div>
+        <a href="/treatments/full-mouth-reconstruction" class="card-link" style="color: var(--teal); font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">Learn about Reconstruction &rarr;</a>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="/treatments" style="color: var(--teal); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--teal); padding-bottom: 4px;">View All Available Treatments &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- Patient Stories Section -->
+<section style="background: #f8fafc; padding: 64px 0;">
+  <div class="container">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 48px auto;">
+      <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight: 700; color: #0f172a; margin-bottom: 12px;">Real Patient Stories</h2>
+      <p style="color: #64748b; font-size: 1.1rem;">Hear directly from some of the 17,000+ patients who traveled to Los Algodones and restored their smiles with Dr. Jose Moguel.</p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
+      <!-- Testimonial 1 -->
+      <div style="background: white; border-radius: 16px; padding: 32px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; display: flex; flex-direction: column; justify-content: space-between;">
+        <p style="font-style: italic; color: #475569; line-height: 1.7; font-size: 1rem; margin-bottom: 24px;">"The savings were incredible, but the care was even better. Dr. Moguel and his team made me feel completely comfortable. The 3-ON-8 protocol changed my life — I can eat whatever I want now, and my new smile looks completely natural."</p>
+        <div>
+          <div style="color: #f59e0b; display: flex; gap: 4px; margin-bottom: 8px;">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+          </div>
+          <div style="font-weight: 700; color: #0f172a;">Robert T.</div>
+          <div style="font-size: 0.85rem; color: #64748b;">Phoenix, Arizona (Saved over $18,000)</div>
+        </div>
+      </div>
+      
+      <!-- Testimonial 2 -->
+      <div style="background: white; border-radius: 16px; padding: 32px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; display: flex; flex-direction: column; justify-content: space-between;">
+        <p style="font-style: italic; color: #475569; line-height: 1.7; font-size: 1rem; margin-bottom: 24px;">"I was very nervous about traveling to Mexico for dental work, but Los Algodones is basically right next to the border. Dr. Moguel’s clinic is state-of-the-art and cleaner than my dentist’s office in California. Highly recommend!"</p>
+        <div>
+          <div style="color: #f59e0b; display: flex; gap: 4px; margin-bottom: 8px;">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+          </div>
+          <div style="font-weight: 700; color: #0f172a;">Linda M.</div>
+          <div style="font-size: 0.85rem; color: #64748b;">San Diego, California (All-on-4 Patient)</div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="/patient-stories" style="color: var(--teal); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--teal); padding-bottom: 4px;">Read More Patient Success Stories &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- Insurance Block -->
+<section style="padding: 64px 0; background: white;">
+  <div class="container" style="max-width: 900px; text-align: center;">
+    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight: 700; color: #0f172a; margin-bottom: 16px;">Did You Know Your Insurance May Cover Treatment in Mexico?</h2>
+    <p style="color: #64748b; font-size: 1.1rem; line-height: 1.7; margin-bottom: 24px;">Many US dental insurance plans reimburse treatment performed in Mexico. We provide all documentation in English with standard CDT procedure codes so you can file your claim easily.</p>
+    <a href="/insurance-claim-guide" style="color: var(--teal); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--teal); padding-bottom: 4px;">Read Our Insurance Claim Guide &rarr;</a>
+  </div>
+</section>
+
+<!-- Bottom CTA Bar -->
+<section style="background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%); color: white; padding: 64px 0; text-align: center;">
+  <div class="container" style="max-width: 800px;">
+    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.5rem; font-weight: 700; color: white; margin-bottom: 16px;">Begin Your Journey to a Brand New Smile</h2>
+    <p style="font-size: 1.15rem; color: #ccfbf1; margin-bottom: 32px; line-height: 1.6;">Get a completely free, no-obligation virtual consultation from your home, or use our digital calculator to see how much you will save compared to US dental costs.</p>
+    
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="/cost-calculator" class="btn-pill-solid" style="background: white; color: var(--teal);">Calculate Your Savings</a>
+      <a href="/contact" class="btn-pill-solid" style="background: transparent; color: white; border: 2px solid white;">Free Assessment</a>
+      <a href="https://wa.me/19283744575" target="_blank" class="btn-pill-solid" style="background: #25d366; color: white; gap: 8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.057 5.291 5.348 0 11.859 0c3.15 0 6.112 1.228 8.342 3.458S23.659 8.71 23.659 11.86c0 6.57-5.29 11.86-11.8 11.86-2.001 0-3.968-.51-5.69-1.488L0 24zm6.59-4.859c1.614.957 3.513 1.462 5.451 1.463 5.378 0 9.756-4.307 9.758-9.602.001-2.565-1.002-4.977-2.825-6.799C17.151 2.38 14.743 1.38 12.181 1.38c-5.385 0-9.765 4.309-9.768 9.605-.001 1.905.503 3.76 1.461 5.381l-.958 3.5 3.71-.973zm11.332-6.522c-.3-.15-1.771-.875-2.046-.975-.275-.1-.475-.15-.675.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-.3-.15-1.267-.467-2.413-1.49-.893-.797-1.496-1.782-1.671-2.082-.175-.3-.018-.462.13-.61.135-.133.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.588-.492-.51-.675-.52-.175-.01-.375-.01-.575-.01-.2 0-.525.075-.8 1.05-.275.975-1.05 1.725-1.225 1.925-.175.2-.218.4-.218.6 0 .4.275 1.25.75 1.775.642.71 1.325 1.15 2.125 1.475.8.325 1.625.3 2.15.225.575-.085 1.771-.725 2.021-1.425.25-.7.25-1.3.175-1.425-.075-.125-.275-.2-.575-.35z"/></svg>
+        WhatsApp Chat
+      </a>
+    </div>
+    
+    <div style="margin-top: 24px; font-size: 1rem; color: #ccfbf1;">
+      Or speak with an advisor directly: <a href="tel:+19283744575" style="color: white; font-weight: 700; text-decoration: underline;">928-374-4575</a>
+    </div>
+  </div>
+</section>
 
 <!-- Footer -->
 <footer>
   <div class="footer-grid">
     <div>
-      <h4>Dr. José Moguel</h4>
-      <p>Board-certified periodontist specializing in dental implants for 38+ years. Located in Los Algodones, Baja California, Mexico.</p>
-      <p style="margin-top: 12px;">📞 <a href="tel:+19283744575">928-374-4575</a></p>
-      <p>✉️ info@dentalimplantsinmexico.info</p>
+      <h4 style="color: white; font-weight: 700; margin-bottom: 16px;">Dr. José Moguel</h4>
+      <p style="line-height: 1.6;">Board-certified periodontist specializing in dental implants for 38+ years. Located in Los Algodones, Baja California, Mexico.</p>
+      <p style="margin-top: 16px;">📞 <a href="tel:+19283744575" style="color: #9ca3af; font-weight: 600;">928-374-4575</a></p>
+      <p>✉️ <a href="mailto:info@dentalimplantsinmexico.info" style="color: #9ca3af;">info@dentalimplantsinmexico.info</a></p>
     </div>
     <div>
-      <h4>Treatments</h4>
+      <h4 style="color: white; font-weight: 700; margin-bottom: 16px;">Treatments</h4>
       <ul>
         <li><a href="/treatments/allon4">All-on-4 Implants</a></li>
         <li><a href="/treatments/allon6">All-on-6 Implants</a></li>
@@ -297,7 +758,7 @@
       </ul>
     </div>
     <div>
-      <h4>Resources</h4>
+      <h4 style="color: white; font-weight: 700; margin-bottom: 16px;">Resources</h4>
       <ul>
         <li><a href="/cost-calculator">Cost Calculator</a></li>
         <li><a href="/treatment-comparison">Treatment Comparison</a></li>
@@ -310,7 +771,7 @@
       </ul>
     </div>
     <div>
-      <h4>Service Areas</h4>
+      <h4 style="color: white; font-weight: 700; margin-bottom: 16px;">Service Areas</h4>
       <ul>
         <li><a href="/dental-implants-scottsdale">Scottsdale, AZ</a></li>
         <li><a href="/dental-implants-phoenix-az">Phoenix, AZ</a></li>
@@ -328,7 +789,10 @@
   </div>
 </footer>
 
-<a href="https://wa.me/19283744575" class="whatsapp-float" title="Chat on WhatsApp">💬</a>
+<!-- WhatsApp Float -->
+<a href="https://wa.me/19283744575" class="whatsapp-float" title="Chat on WhatsApp" target="_blank">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.057 5.291 5.348 0 11.859 0c3.15 0 6.112 1.228 8.342 3.458S23.659 8.71 23.659 11.86c0 6.57-5.29 11.86-11.8 11.86-2.001 0-3.968-.51-5.69-1.488L0 24zm6.59-4.859c1.614.957 3.513 1.462 5.451 1.463 5.378 0 9.756-4.307 9.758-9.602.001-2.565-1.002-4.977-2.825-6.799C17.151 2.38 14.743 1.38 12.181 1.38c-5.385 0-9.765 4.309-9.768 9.605-.001 1.905.503 3.76 1.461 5.381l-.958 3.5 3.71-.973zm11.332-6.522c-.3-.15-1.771-.875-2.046-.975-.275-.1-.475-.15-.675.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-.3-.15-1.267-.467-2.413-1.49-.893-.797-1.496-1.782-1.671-2.082-.175-.3-.018-.462.13-.61.135-.133.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.588-.492-.51-.675-.52-.175-.01-.375-.01-.575-.01-.2 0-.525.075-.8 1.05-.275.975-1.05 1.725-1.225 1.925-.175.2-.218.4-.218.6 0 .4.275 1.25.75 1.775.642.71 1.325 1.15 2.125 1.475.8.325 1.625.3 2.15.225.575-.085 1.771-.725 2.021-1.425.25-.7.25-1.3.175-1.425-.075-.125-.275-.2-.575-.35z"/></svg>
+</a>
 
 <script src="/js/main.js"></script>
 </body>
