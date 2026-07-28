@@ -71,7 +71,7 @@ def get_article_schema(url, title, desc, mod_date="2026-07-25T19:38:00-07:00"):
         "@type": "NewsArticle",
         "headline": title,
         "description": desc,
-        "image": "https://media.base44.com/images/public/6a5301f7d191f37052971c5e/7483864c6_Dr-Jose-Moguel-Dental-Implant-Expertise-in-Mexico-los-algodones.webp",
+        "image": "/images/hero-dr-jose-moguel-expertise.webp",
         "datePublished": "2026-01-01T08:00:00+00:00",
         "dateModified": mod_date,
         "author": {
@@ -85,7 +85,7 @@ def get_article_schema(url, title, desc, mod_date="2026-07-25T19:38:00-07:00"):
             "name": "Dr. José Moguel Dental Implants in Mexico",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://media.base44.com/images/public/6a5301f7d191f37052971c5e/7483864c6_Dr-Jose-Moguel-Dental-Implant-Expertise-in-Mexico-los-algodones.webp"
+                "url": "/images/hero-dr-jose-moguel-expertise.webp"
             }
         },
         "mainEntityOfPage": url
@@ -556,7 +556,7 @@ html_template = """<!DOCTYPE html>
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{canonical}">
-  <meta property="og:image" content="https://media.base44.com/images/public/6a5301f7d191f37052971c5e/7483864c6_Dr-Jose-Moguel-Dental-Implant-Expertise-in-Mexico-los-algodones.webp">
+  <meta property="og:image" content="/images/hero-dr-jose-moguel-expertise.webp">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
