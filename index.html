@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/styles.css">
   
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
   <!-- Structured Data: Dentist/LocalBusiness -->
   <script type="application/ld+json">
@@ -66,11 +66,70 @@
   }
   </script>
 
+  <!-- FAQ Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much do dental implants cost in Mexico compared to the US?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dental implants in Mexico cost 60-70% less than in the US. A single tooth implant that costs $4,000-$6,000 in the US costs $1,500-$2,500 with Dr. Moguel. Full-mouth All-on-4 that costs $20,000-$30,000 in the US costs $6,000-$9,000."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it safe to get dental implants in Los Algodones, Mexico?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Dr. José Moguel is ADA and ADM board-certified with 38+ years of experience and 17,000+ implants placed. His clinic uses US-standard technology and follows the same sterilization protocols as American dental offices."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does the dental implant procedure take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most procedures are completed in 2-4 days. Full-arch procedures like All-on-4 or 3-ON-8 can be done in a single visit of 3-5 days, including consultation, surgery, and fitting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What warranty is offered on dental implants?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dr. Moguel offers a lifetime warranty on all dental implants. Your investment is protected for life."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get to Los Algodones from the US?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Los Algodones is located at the US-Mexico border, just 10 minutes from Yuma, Arizona. You can drive and walk across the border — no special paperwork needed for day visits. Many patients fly into Phoenix (3-hour drive) or San Diego (2.5-hour drive)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to speak Spanish?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Dr. Moguel and his staff speak fluent English. Los Algodones (Molar City) is built specifically for American and Canadian dental tourists, so English is spoken everywhere."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --primary-teal: #0D9488;
       --primary-teal-hover: #0F766E;
       --primary-teal-light: #F0FDFA;
+      --primary-teal-dark: #134E4A;
       --dark-bg: #0F172A;
       --light-bg: #F8FAFC;
       --text-primary: #0F172A;
@@ -79,64 +138,38 @@
       --border-color: #E2E8F0;
       --max-width: 1200px;
       --transition: all 0.3s ease;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
       color: var(--text-secondary);
-      background-color: #ffffff;
+      background: #fff;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
     .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
-
     section { padding: 80px 0; }
-
-    h1, h2, h3, h4 { color: var(--text-primary); font-weight: 700; }
+    h1, h2, h3, h4 { color: var(--text-primary); font-weight: 800; }
+    img { display: block; max-width: 100%; }
 
     /* === UTILITY BAR === */
-    .utility-bar {
-      background: var(--dark-bg);
-      color: #fff;
-      padding: 8px 0;
-      font-size: 0.8rem;
-    }
-    .utility-bar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .utility-bar { background: var(--dark-bg); color: #fff; padding: 8px 0; font-size: 0.8rem; }
+    .utility-bar .container { display: flex; justify-content: space-between; align-items: center; }
     .utility-bar a { color: #fff; text-decoration: none; }
     .utility-bar .utility-left { display: flex; gap: 20px; align-items: center; }
-    .utility-bar .utility-right { display: flex; gap: 12px; }
-    .utility-bar .utility-right a {
-      display: flex; align-items: center; justify-content: center;
-      width: 28px; height: 28px; border-radius: 4px;
-      transition: var(--transition);
-    }
+    .utility-bar .utility-right { display: flex; gap: 8px; }
+    .utility-bar .utility-right a { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 4px; transition: var(--transition); }
     .utility-bar .utility-right a:hover { opacity: 0.8; }
 
-    /* === FIXED LEFT SOCIAL SIDEBAR === */
-    .social-sidebar {
-      position: fixed;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .social-sidebar a {
-      width: 44px; height: 44px;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; text-decoration: none;
-      transition: var(--transition);
-    }
+    /* === SOCIAL SIDEBAR === */
+    .social-sidebar { position: fixed; left: 0; top: 50%; transform: translateY(-50%); z-index: 999; display: flex; flex-direction: column; gap: 2px; }
+    .social-sidebar a { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: var(--transition); }
     .social-sidebar a:hover { transform: translateX(5px); }
     .social-sidebar .wa { background: #25D366; border-radius: 0 8px 0 0; }
     .social-sidebar .fb { background: #3b5998; }
@@ -144,343 +177,289 @@
     .social-sidebar .ph { background: var(--primary-teal); border-radius: 0 0 8px 0; }
 
     /* === HEADER === */
-    .site-header {
-      background: #fff;
-      position: sticky; top: 0; z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      border-bottom: 1px solid var(--border-color);
-    }
-    .header-inner {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 16px 24px; max-width: var(--max-width); margin: 0 auto;
-    }
+    .site-header { background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-sm); border-bottom: 1px solid var(--border-color); }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; max-width: var(--max-width); margin: 0 auto; }
     .site-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .site-logo img {
-      width: 44px; height: 44px; border-radius: 8px;
-      object-fit: cover; border: 2px solid var(--primary-teal);
-    }
+    .site-logo img { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; border: 2px solid var(--primary-teal); }
     .site-logo .logo-name { font-size: 1.2rem; font-weight: 800; color: var(--text-primary); line-height: 1.1; }
     .site-logo .logo-sub { font-size: 0.7rem; color: var(--text-muted); font-weight: 500; }
     .site-nav { display: flex; gap: 28px; list-style: none; }
-    .site-nav a {
-      text-decoration: none; color: var(--text-secondary);
-      font-weight: 600; font-size: 0.95rem; position: relative;
-      padding-bottom: 4px; transition: var(--transition);
-    }
+    .site-nav a { text-decoration: none; color: var(--text-secondary); font-weight: 600; font-size: 0.95rem; position: relative; padding-bottom: 4px; transition: var(--transition); }
     .site-nav a:hover, .site-nav a.active { color: var(--primary-teal); }
-    .site-nav a.active::after {
-      content: ''; position: absolute; bottom: 0; left: 0;
-      width: 100%; height: 3px; background: var(--primary-teal); border-radius: 2px;
-    }
-    .header-phone {
-      display: flex; align-items: center; gap: 8px;
-      background: var(--primary-teal); color: #fff;
-      padding: 10px 20px; border-radius: 6px;
-      font-weight: 700; font-size: 0.9rem; text-decoration: none;
-      transition: var(--transition);
-    }
+    .site-nav a.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: var(--primary-teal); border-radius: 2px; }
+    .header-cta { display: flex; gap: 10px; align-items: center; }
+    .header-phone { display: flex; align-items: center; gap: 8px; background: var(--primary-teal); color: #fff; padding: 10px 20px; border-radius: 6px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: var(--transition); }
     .header-phone:hover { background: var(--primary-teal-hover); }
+    .header-consult { background: #fff; color: var(--primary-teal); border: 2px solid var(--primary-teal); padding: 8px 18px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: var(--transition); }
+    .header-consult:hover { background: var(--primary-teal-light); }
     .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
 
-    /* === HERO SECTION === */
-    .hero {
-      position: relative;
-      background: url("/images/picasso-dental-lasers.jpg") center center / cover no-repeat;
-      padding: 120px 0 100px;
-      text-align: center;
-    }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.85) 50%, rgba(13,148,136,0.6) 100%);
-    }
+    /* === HERO === */
+    .hero { position: relative; background: url("/images/picasso-dental-lasers.jpg") center center / cover no-repeat; padding: 100px 0 80px; text-align: center; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,23,42,0.94) 0%, rgba(15,23,42,0.88) 50%, rgba(13,148,136,0.65) 100%); }
     .hero .container { position: relative; z-index: 2; }
-    .hero h1 {
-      font-size: 3.5rem; color: #fff; font-weight: 800;
-      letter-spacing: -0.02em; margin-bottom: 12px;
-      text-transform: uppercase;
-    }
-    .hero .hero-tagline {
-      font-size: 1.5rem; color: rgba(255,255,255,0.9);
-      margin-bottom: 16px; font-weight: 500;
-    }
-    .hero .hero-italic {
-      font-family: 'Playfair Display', serif; font-style: italic;
-      color: #5EEAD4; font-size: 1.6rem; margin-bottom: 32px;
-    }
-    .hero .hero-search {
-      max-width: 500px; margin: 0 auto 28px;
-      display: flex; gap: 8px;
-    }
-    .hero .hero-search input {
-      flex: 1; padding: 14px 20px; border: none;
-      border-radius: 6px; font-size: 1rem; outline: none;
-    }
-    .hero .hero-search button {
-      padding: 14px 24px; background: var(--primary-teal); color: #fff;
-      border: none; border-radius: 6px; font-weight: 700; cursor: pointer;
-      transition: var(--transition); white-space: nowrap;
-    }
-    .hero .hero-search button:hover { background: var(--primary-teal-hover); }
-    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn-solid {
-      background: var(--primary-teal); color: #fff; padding: 14px 32px;
-      border-radius: 6px; font-weight: 700; font-size: 1rem;
-      text-decoration: none; transition: var(--transition);
-      display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--primary-teal);
-    }
-    .btn-solid:hover { background: var(--primary-teal-hover); color: #fff; transform: translateY(-2px); }
-    .btn-outline {
-      background: transparent; color: #fff; padding: 12px 32px;
-      border-radius: 6px; font-weight: 700; font-size: 1rem;
-      text-decoration: none; transition: var(--transition);
-      border: 2px solid #fff;
-    }
+    .hero h1 { font-size: 3.2rem; color: #fff; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 10px; text-transform: uppercase; }
+    .hero .hero-tagline { font-size: 1.4rem; color: rgba(255,255,255,0.9); margin-bottom: 12px; font-weight: 500; }
+    .hero .hero-italic { font-family: 'Playfair Display', serif; font-style: italic; color: #5EEAD4; font-size: 1.5rem; margin-bottom: 24px; }
+
+    /* === HERO TRUST BADGES === */
+    .hero-trust { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .hero-trust .trust-badge { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.95); font-size: 0.85rem; font-weight: 600; }
+    .hero-trust .trust-badge svg { color: #5EEAD4; flex-shrink: 0; }
+
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+    .btn-solid { background: var(--primary-teal); color: #fff; padding: 16px 36px; border-radius: 6px; font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: var(--transition); display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--primary-teal); }
+    .btn-solid:hover { background: var(--primary-teal-hover); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,148,136,0.4); }
+    .btn-outline { background: transparent; color: #fff; padding: 14px 36px; border-radius: 6px; font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: var(--transition); border: 2px solid rgba(255,255,255,0.6); }
     .btn-outline:hover { background: #fff; color: var(--text-primary); transform: translateY(-2px); }
 
-    /* === THREE FEATURE PANELS === */
-    .feature-panels {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 0; margin-top: -40px; position: relative; z-index: 10;
-    }
-    .feature-panel {
-      background: var(--primary-teal); color: #fff;
-      padding: 32px 28px; text-align: center;
-      text-decoration: none; transition: var(--transition);
-      border-right: 1px solid rgba(255,255,255,0.15);
-    }
+    /* Hero urgency line */
+    .hero-urgency { color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 8px; }
+    .hero-urgency strong { color: #FBBF24; }
+
+    /* === FEATURE PANELS === */
+    .feature-panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: -40px; position: relative; z-index: 10; }
+    .feature-panel { background: var(--primary-teal); color: #fff; padding: 28px 24px; text-align: center; text-decoration: none; transition: var(--transition); border-right: 1px solid rgba(255,255,255,0.15); }
     .feature-panel:last-child { border-right: none; }
     .feature-panel:hover { background: var(--primary-teal-hover); transform: translateY(-4px); }
-    .feature-panel .panel-icon {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: rgba(255,255,255,0.15); margin: 0 auto 16px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .feature-panel h3 { color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.03em; }
-    .feature-panel p { color: rgba(255,255,255,0.8); font-size: 0.85rem; margin: 0; }
+    .feature-panel .panel-icon { width: 52px; height: 52px; border-radius: 50%; background: rgba(255,255,255,0.15); margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; }
+    .feature-panel h3 { color: #fff; font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.03em; }
+    .feature-panel p { color: rgba(255,255,255,0.8); font-size: 0.82rem; margin: 0; }
+
+    /* === TRUST STRIP === */
+    .trust-strip { background: var(--light-bg); padding: 40px 0; border-bottom: 1px solid var(--border-color); }
+    .trust-strip .container { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .trust-strip .trust-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .trust-strip .trust-item .trust-icon { width: 48px; height: 48px; border-radius: 50%; background: var(--primary-teal-light); display: flex; align-items: center; justify-content: center; color: var(--primary-teal); }
+    .trust-strip .trust-item .trust-label { font-size: 0.8rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.04em; }
+    .trust-strip .trust-item .trust-sub { font-size: 0.7rem; color: var(--text-muted); }
 
     /* === STATS BAR === */
-    .stats-bar {
-      background: var(--primary-teal); padding: 40px 0;
-    }
+    .stats-bar { background: var(--primary-teal-dark); padding: 48px 0; }
     .stats-bar .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .stat-item { text-align: center; color: #fff; }
-    .stat-num { font-size: 2.5rem; font-weight: 800; margin-bottom: 4px; }
-    .stat-label { font-size: 0.85rem; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat-num { font-size: 2.8rem; font-weight: 900; margin-bottom: 4px; }
+    .stat-label { font-size: 0.8rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
 
     /* === SECTION TITLE === */
-    .section-title {
-      text-align: center; font-size: 2rem; font-weight: 800;
-      color: var(--text-primary); margin-bottom: 8px;
-      text-transform: uppercase; letter-spacing: -0.01em;
-    }
-    .section-subtitle {
-      text-align: center; color: var(--text-muted);
-      font-size: 1rem; margin-bottom: 48px;
-    }
+    .section-title { text-align: center; font-size: 2rem; font-weight: 900; color: var(--text-primary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: -0.01em; }
+    .section-subtitle { text-align: center; color: var(--text-muted); font-size: 1rem; margin-bottom: 48px; }
 
-    /* === ABOUT SECTION === */
+    /* === ABOUT === */
     .about-section { background: #fff; }
-    .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: center; }
-    .about-text h2 { font-size: 2rem; margin-bottom: 16px; }
-    .about-text p { margin-bottom: 16px; line-height: 1.7; color: var(--text-secondary); }
-    .about-text .credential-list { list-style: none; margin: 20px 0; }
-    .about-text .credential-list li {
-      display: flex; align-items: center; gap: 10px; padding: 8px 0;
-      color: var(--text-secondary);
-    }
-    .about-text .credential-list svg { color: var(--primary-teal); flex-shrink: 0; }
+    .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: center; }
+    .about-text h2 { font-size: 1.8rem; margin-bottom: 16px; text-transform: none; }
+    .about-text p { margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary); }
+    .credential-list { list-style: none; margin: 20px 0; }
+    .credential-list li { display: flex; align-items: center; gap: 10px; padding: 8px 0; color: var(--text-secondary); }
+    .credential-list svg { color: var(--primary-teal); flex-shrink: 0; }
 
-    .profile-card {
-      background: #fff; border: 1px solid var(--border-color);
-      border-radius: 12px; padding: 32px; text-align: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    }
-    .profile-card img {
-      width: 140px; height: 140px; border-radius: 50%;
-      object-fit: cover; margin: 0 auto 20px;
-      border: 4px solid var(--primary-teal-light);
-    }
+    .profile-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 32px; text-align: center; box-shadow: var(--shadow-md); }
+    .profile-card img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px; border: 4px solid var(--primary-teal-light); }
     .profile-card h3 { font-size: 1.3rem; margin-bottom: 4px; }
     .profile-card .profile-title { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px; }
     .profile-card .profile-cred { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 16px; }
-    .profile-card .profile-contact {
-      display: flex; justify-content: center; gap: 16px; margin-bottom: 12px;
-    }
-    .profile-card .profile-contact a {
-      width: 40px; height: 40px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--light-bg); color: var(--text-secondary);
-      transition: var(--transition); text-decoration: none;
-    }
+    .profile-card .profile-contact { display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; }
+    .profile-card .profile-contact a { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--light-bg); color: var(--text-secondary); transition: var(--transition); text-decoration: none; }
     .profile-card .profile-contact a:hover { background: var(--primary-teal); color: #fff; }
+    .profile-card .profile-badge { display: inline-block; background: var(--primary-teal-light); color: var(--primary-teal); font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 9999px; margin: 0 2px; }
 
-    /* === CLINIC TOUR GRID === */
+    /* === CLINIC TOUR === */
     .clinic-section { background: var(--light-bg); }
     .clinic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .clinic-card {
-      border-radius: 12px; overflow: hidden; position: relative;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer;
-      transition: var(--transition);
-    }
-    .clinic-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-    .clinic-card img { width: 100%; height: 240px; object-fit: cover; display: block; }
-    .clinic-card .clinic-label {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.8));
-      color: #fff; padding: 20px 16px 14px; font-weight: 700; font-size: 0.95rem;
-    }
+    .clinic-card { border-radius: 12px; overflow: hidden; position: relative; box-shadow: var(--shadow-sm); cursor: pointer; transition: var(--transition); }
+    .clinic-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .clinic-card img { width: 100%; height: 240px; object-fit: cover; }
+    .clinic-card .clinic-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: #fff; padding: 20px 16px 14px; font-weight: 700; font-size: 0.95rem; }
 
     /* === TREATMENTS === */
     .treatments-section { background: #fff; }
     .treatment-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .treatment-card {
-      background: #fff; border: 1px solid var(--border-color);
-      border-radius: 12px; overflow: hidden;
-      transition: var(--transition); text-decoration: none;
-    }
-    .treatment-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); border-color: var(--primary-teal); }
+    .treatment-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; transition: var(--transition); text-decoration: none; }
+    .treatment-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary-teal); }
     .treatment-card img { width: 100%; height: 160px; object-fit: cover; }
     .treatment-card .treatment-body { padding: 20px; }
-    .treatment-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .treatment-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
     .treatment-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
+    .treatment-card .treatment-price { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid var(--border-color); }
+    .treatment-card .price-from { font-size: 0.75rem; color: var(--text-muted); }
+    .treatment-card .price-amount { font-size: 1.1rem; font-weight: 800; color: var(--primary-teal); }
     .treatment-card .treatment-link { color: var(--primary-teal); font-weight: 700; font-size: 0.85rem; }
 
     /* === COST TABLE === */
     .cost-section { background: var(--light-bg); }
-    .cost-table {
-      width: 100%; border-collapse: collapse;
-      background: #fff; border-radius: 12px; overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .cost-table th { background: var(--primary-teal); color: #fff; padding: 16px 20px; text-align: left; font-weight: 700; }
+    .cost-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); }
+    .cost-table th { background: var(--primary-teal); color: #fff; padding: 16px 20px; text-align: left; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.04em; }
     .cost-table td { padding: 14px 20px; border-bottom: 1px solid var(--border-color); color: var(--text-secondary); }
     .cost-table tr:last-child td { border-bottom: none; }
-    .cost-table .savings { color: var(--primary-teal); font-weight: 700; }
+    .cost-table .savings { color: var(--primary-teal); font-weight: 800; }
+    .cost-table .us-price { color: #EF4444; text-decoration: line-through; opacity: 0.7; }
+    .cost-table .mx-price { color: var(--primary-teal); font-weight: 700; }
+
+    /* === BEFORE/AFTER === */
+    .before-after-section { background: #fff; }
+    .ba-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+    .ba-card { border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); }
+    .ba-card img { width: 100%; height: 240px; object-fit: cover; }
+    .ba-card .ba-label { padding: 12px 16px; text-align: center; }
+    .ba-card .ba-label .ba-title { font-weight: 800; font-size: 0.9rem; color: var(--text-primary); }
+    .ba-card .ba-label .ba-sub { font-size: 0.78rem; color: var(--text-muted); }
 
     /* === PATIENT JOURNEY === */
-    .journey-section { background: #fff; }
+    .journey-section { background: var(--light-bg); }
     .journey-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .journey-step { text-align: center; }
-    .journey-step .step-num {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: var(--primary-teal-light); color: var(--primary-teal);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; font-weight: 800; margin: 0 auto 16px;
-    }
+    .journey-step { text-align: center; position: relative; }
+    .journey-step::after { content: '→'; position: absolute; right: -16px; top: 20px; color: var(--text-muted); font-size: 1.5rem; }
+    .journey-step:last-child::after { display: none; }
+    .journey-step .step-num { width: 64px; height: 64px; border-radius: 50%; background: var(--primary-teal); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; margin: 0 auto 16px; }
     .journey-step h3 { font-size: 1.05rem; margin-bottom: 8px; }
     .journey-step p { font-size: 0.85rem; color: var(--text-muted); }
 
+    /* === GUARANTEE SECTION === */
+    .guarantee-section { background: var(--primary-teal-dark); padding: 64px 0; text-align: center; }
+    .guarantee-section .guarantee-badge { width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+    .guarantee-section h2 { color: #fff; font-size: 1.8rem; margin-bottom: 12px; }
+    .guarantee-section p { color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 24px; font-size: 1.05rem; }
+    .guarantee-section .guarantee-features { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-top: 24px; }
+    .guarantee-section .gf-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); font-size: 0.9rem; }
+    .guarantee-section .gf-item svg { color: #5EEAD4; }
+
     /* === WHY CHOOSE US === */
     .why-section { background: var(--dark-bg); color: #fff; }
-    .why-section h2, .why-section h3 { color: #fff; }
+    .why-section .section-title { color: #fff; }
     .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
     .why-card { text-align: center; }
-    .why-card .why-icon {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: rgba(13,148,136,0.2); margin: 0 auto 16px;
-      display: flex; align-items: center; justify-content: center; color: #5EEAD4;
-    }
-    .why-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .why-card .why-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(13,148,136,0.2); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; color: #5EEAD4; }
+    .why-card h3 { color: #fff; font-size: 1.1rem; margin-bottom: 8px; }
     .why-card p { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
 
     /* === TESTIMONIALS === */
     .testimonials-section { background: var(--light-bg); }
     .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .testimonial-card {
-      background: #fff; border: 1px solid var(--border-color);
-      border-radius: 12px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
+    .testimonial-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 28px; box-shadow: var(--shadow-sm); }
     .testimonial-card .stars { color: #F59E0B; margin-bottom: 12px; font-size: 1.1rem; }
     .testimonial-card .quote { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
-    .testimonial-card .author { font-weight: 700; color: var(--text-primary); font-size: 0.9rem; }
+    .testimonial-card .author { font-weight: 800; color: var(--text-primary); font-size: 0.9rem; }
     .testimonial-card .author-meta { font-size: 0.8rem; color: var(--text-muted); }
+    .testimonial-card .savings-badge { display: inline-block; background: var(--primary-teal-light); color: var(--primary-teal); font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; margin-top: 8px; }
+
+    /* === FAQ === */
+    .faq-section { background: #fff; }
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border-color); }
+    .faq-item summary { cursor: pointer; padding: 20px 0; font-weight: 700; font-size: 1.05rem; color: var(--text-primary); display: flex; justify-content: space-between; align-items: center; list-style: none; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-size: 1.5rem; color: var(--primary-teal); transition: var(--transition); }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item .faq-answer { padding: 0 0 20px 0; color: var(--text-secondary); line-height: 1.7; }
 
     /* === CTA BAR === */
-    .cta-bar { background: var(--primary-teal); padding: 48px 0; text-align: center; }
+    .cta-bar { background: var(--primary-teal); padding: 56px 0; text-align: center; }
     .cta-bar h2 { color: #fff; font-size: 1.8rem; margin-bottom: 8px; }
     .cta-bar p { color: rgba(255,255,255,0.85); margin-bottom: 24px; }
     .cta-bar .btn-solid { background: #fff; color: var(--primary-teal); border-color: #fff; }
     .cta-bar .btn-solid:hover { background: var(--primary-teal-hover); color: #fff; }
     .cta-bar .btn-outline { border-color: #fff; }
 
+    /* === REAL PATIENTS === */
+    .patients-section { background: var(--light-bg); }
+    .patients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .patient-card { border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); }
+    .patient-card img { width: 100%; height: 260px; object-fit: cover; }
+    .patient-card .patient-label { padding: 14px 16px; background: #fff; border-top: 3px solid var(--primary-teal); }
+    .patient-card .patient-label p { font-weight: 700; color: var(--text-primary); margin: 0; font-size: 0.9rem; }
+    .patient-card .patient-label span { font-size: 0.78rem; color: var(--text-muted); }
+
     /* === CONTACT FORM === */
-    .contact-section { background: var(--light-bg); padding: 80px 0; }
-    .contact-form {
-      max-width: 700px; margin: 0 auto;
-      background: #fff; border-radius: 12px; padding: 48px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    }
+    .contact-section { background: var(--light-bg); }
+    .contact-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start; }
+    .contact-info { padding: 32px; background: var(--dark-bg); border-radius: 12px; color: #fff; }
+    .contact-info h3 { color: #fff; font-size: 1.3rem; margin-bottom: 16px; }
+    .contact-info .ci-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .contact-info .ci-item:last-child { border-bottom: none; }
+    .contact-info .ci-item svg { color: #5EEAD4; flex-shrink: 0; }
+    .contact-info .ci-item a { color: #fff; text-decoration: none; }
+    .contact-info .ci-item span { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+    .contact-info .ci-trust { margin-top: 20px; padding: 16px; background: rgba(255,255,255,0.05); border-radius: 8px; }
+    .contact-info .ci-trust p { color: rgba(255,255,255,0.8); font-size: 0.85rem; }
+
+    .contact-form { background: #fff; border-radius: 12px; padding: 40px; box-shadow: var(--shadow-md); }
     .contact-form .form-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
     .contact-form .form-group { margin-bottom: 16px; }
     .contact-form label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-primary); }
-    .contact-form input, .contact-form textarea, .contact-form select {
-      width: 100%; padding: 12px 16px; border: 1px solid var(--border-color);
-      border-radius: 8px; font-size: 0.95rem; font-family: 'Inter', sans-serif; outline: none;
-      transition: var(--transition);
-    }
+    .contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 12px 16px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.95rem; font-family: 'Inter', sans-serif; outline: none; transition: var(--transition); }
     .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: var(--primary-teal); box-shadow: 0 0 0 3px rgba(13,148,136,0.1); }
     .contact-form textarea { min-height: 120px; resize: vertical; }
-    .contact-form button {
-      width: 100%; padding: 16px; background: var(--primary-teal); color: #fff;
-      border: none; border-radius: 8px; font-weight: 700; font-size: 1rem;
-      cursor: pointer; transition: var(--transition); text-transform: uppercase; letter-spacing: 0.05em;
-    }
-    .contact-form button:hover { background: var(--primary-teal-hover); }
+    .contact-form button { width: 100%; padding: 16px; background: var(--primary-teal); color: #fff; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: var(--transition); text-transform: uppercase; letter-spacing: 0.05em; }
+    .contact-form button:hover { background: var(--primary-teal-hover); box-shadow: 0 4px 16px rgba(13,148,136,0.3); }
     .contact-form .form-disclaimer { font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 12px; }
 
+    /* === STICKY CTA BAR === */
+    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 998; background: var(--dark-bg); padding: 12px 0; display: flex; justify-content: center; gap: 12px; align-items: center; box-shadow: 0 -4px 16px rgba(0,0,0,0.15); transform: translateY(100%); transition: transform 0.4s ease; }
+    .sticky-cta.visible { transform: translateY(0); }
+    .sticky-cta .sticky-text { color: #fff; font-weight: 700; font-size: 0.9rem; }
+    .sticky-cta .sticky-text strong { color: #5EEAD4; }
+    .sticky-cta a { padding: 10px 24px; border-radius: 6px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: var(--transition); }
+    .sticky-cta .sticky-call { background: var(--primary-teal); color: #fff; }
+    .sticky-cta .sticky-call:hover { background: var(--primary-teal-hover); }
+    .sticky-cta .sticky-wa { background: #25D366; color: #fff; }
+    .sticky-cta .sticky-wa:hover { background: #1FAE50; }
+    .sticky-cta .sticky-form { background: #fff; color: var(--text-primary); }
+    .sticky-cta .sticky-form:hover { background: var(--light-bg); }
+
     /* === FOOTER === */
-    footer { background: var(--dark-bg); color: #fff; padding: 60px 0 20px; }
+    footer { background: var(--dark-bg); color: #fff; padding: 60px 0 80px; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
-    .footer-col h4 { color: #fff; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
+    .footer-col h4 { color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 8px; }
-    .footer-col ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: var(--transition); }
+    .footer-col ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; transition: var(--transition); }
     .footer-col ul li a:hover { color: var(--primary-teal); }
     .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; text-decoration: none; }
     .footer-logo img { width: 36px; height: 36px; border-radius: 6px; object-fit: cover; }
     .footer-logo .footer-logo-text { font-size: 1rem; font-weight: 800; color: #fff; }
     .footer-logo .footer-logo-sub { font-size: 0.65rem; color: var(--text-muted); }
-    .footer-contact p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; }
+    .footer-contact p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
     .footer-contact a { color: var(--primary-teal); text-decoration: none; font-weight: 700; }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 0.8rem; color: var(--text-muted);
-    }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--text-muted); }
     .footer-bottom a { color: var(--text-muted); text-decoration: none; margin-left: 16px; }
 
     /* === WHATSAPP FLOAT === */
-    .whatsapp-float {
-      position: fixed; bottom: 24px; right: 24px; z-index: 999;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: #25D366; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 16px rgba(37,211,102,0.4); transition: var(--transition);
-    }
+    .whatsapp-float { position: fixed; bottom: 70px; right: 24px; z-index: 999; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.4); transition: var(--transition); }
     .whatsapp-float:hover { transform: scale(1.1); }
     .whatsapp-float svg { width: 28px; height: 28px; fill: #fff; }
 
     /* === RESPONSIVE === */
     @media (max-width: 768px) {
       .social-sidebar { display: none; }
-      .utility-bar .utility-left { font-size: 0.7rem; }
       .site-nav { display: none; }
+      .header-consult { display: none; }
       .mobile-menu-btn { display: block; }
       .hero h1 { font-size: 2rem; }
-      .hero .hero-tagline, .hero .hero-italic { font-size: 1.1rem; }
+      .hero .hero-tagline { font-size: 1.1rem; }
+      .hero .hero-italic { font-size: 1.1rem; }
+      .hero-trust { gap: 12px; }
+      .hero-trust .trust-badge { font-size: 0.75rem; }
       .feature-panels { grid-template-columns: 1fr; }
       .feature-panel { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); }
       .stats-bar .container { grid-template-columns: repeat(2, 1fr); }
       .about-grid { grid-template-columns: 1fr; }
       .clinic-grid { grid-template-columns: 1fr; }
-      .treatment-grid { grid-template-columns: 1fr; }
+      .treatment-grid { grid-template-columns: 1fr 1fr; }
       .journey-grid { grid-template-columns: 1fr 1fr; }
+      .journey-step::after { display: none; }
       .why-grid { grid-template-columns: 1fr; }
       .testimonial-grid { grid-template-columns: 1fr; }
+      .ba-grid { grid-template-columns: 1fr; }
+      .patients-grid { grid-template-columns: 1fr; }
+      .contact-wrapper { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .contact-form .form-row { grid-template-columns: 1fr; }
       .contact-form { padding: 24px; }
-      .cost-table { font-size: 0.8rem; }
-      .cost-table th, .cost-table td { padding: 10px 12px; }
+      .sticky-cta { flex-wrap: wrap; padding: 10px 12px; }
+      .sticky-cta .sticky-text { font-size: 0.75rem; width: 100%; text-align: center; margin-bottom: 6px; }
+      .sticky-cta a { font-size: 0.8rem; padding: 8px 16px; }
+      .whatsapp-float { bottom: 80px; }
     }
   </style>
 </head>
@@ -504,7 +483,7 @@
     </div>
   </div>
 
-  <!-- FIXED LEFT SOCIAL SIDEBAR -->
+  <!-- SOCIAL SIDEBAR -->
   <div class="social-sidebar">
     <a href="https://wa.me/19283744575" target="_blank" class="wa" title="WhatsApp">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M20.5 3.4C18.2 1.2 15.2 0 12 0 5.4 0 .1 5.4.1 12c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.6c1.7.9 3.6 1.4 5.6 1.4 6.6 0 11.9-5.4 11.9-12 0-3.2-1.2-6.3-3.4-8.4zM12 21.9c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.9 1 1-3.8-.3-.4c-1-1.6-1.6-3.5-1.6-5.5 0-5.5 4.5-10 10-10 2.7 0 5.2 1 7.1 2.9 1.9 1.9 2.9 4.4 2.9 7.1C22 17.4 17.5 21.9 12 21.9z"/></svg>
@@ -539,22 +518,44 @@
           <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
-      <a href="tel:+19283744575" class="header-phone">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        (928) 374-4575
-      </a>
-      <button class="mobile-menu-btn">☰</button>
+      <div class="header-cta">
+        <a href="/contact" class="header-consult">Free Consult</a>
+        <a href="tel:+19283744575" class="header-phone">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          (928) 374-4575
+        </a>
+        <button class="mobile-menu-btn">☰</button>
+      </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <h1>DR. JOSÉ MOGUEL</h1>
       <div class="hero-tagline">EXPERT DENTAL IMPLANTS IN LOS ALGODONES, MEXICO</div>
-      <!-- SEO: visually hidden H1 with primary keyword -->
-      <h1 style="position:absolute;left:-9999px;font-size:1px;opacity:0;">Dental Implants in Los Algodones, Mexico | Dr. José Moguel</h1>
       <div class="hero-italic">Save 60-70% on full-mouth restoration — 38 years of expertise</div>
+      
+      <!-- Trust badges in hero -->
+      <div class="hero-trust">
+        <div class="trust-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"/></svg>
+          ADA Board Certified
+        </div>
+        <div class="trust-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          17,000+ Implants Placed
+        </div>
+        <div class="trust-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          5.0 Stars · 847 Reviews
+        </div>
+        <div class="trust-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          38+ Years Experience
+        </div>
+      </div>
+
       <div class="hero-buttons">
         <a href="/cost-calculator" class="btn-solid">
           Get Free Cost Estimate
@@ -562,10 +563,11 @@
         </a>
         <a href="/treatments" class="btn-outline">View Treatments</a>
       </div>
+      <div class="hero-urgency">⚡ <strong>Free consultation slots available this month</strong> — book before they fill up</div>
     </div>
   </section>
 
-  <!-- THREE FEATURE PANELS -->
+  <!-- FEATURE PANELS -->
   <div class="container">
     <div class="feature-panels">
       <a href="/cost-calculator" class="feature-panel">
@@ -592,6 +594,47 @@
     </div>
   </div>
 
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="container">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div class="trust-label">ADA Certified</div>
+        <div class="trust-sub">American Dental Assoc.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+        </div>
+        <div class="trust-label">ADM Certified</div>
+        <div class="trust-sub">Mexican Dental Assoc.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="trust-label">5.0 Star Rating</div>
+        <div class="trust-sub">847 Verified Reviews</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="trust-label">Lifetime Warranty</div>
+        <div class="trust-sub">On All Implants</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <div class="trust-label">3-ON-8™ Patented</div>
+        <div class="trust-sub">Exclusive Protocol</div>
+      </div>
+    </div>
+  </div>
+
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="container">
@@ -608,8 +651,8 @@
         <div class="stat-label">Star Rating</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">847+</div>
-        <div class="stat-label">Reviews</div>
+        <div class="stat-num">70%</div>
+        <div class="stat-label">Average Savings</div>
       </div>
     </div>
   </div>
@@ -627,7 +670,7 @@
           <ul class="credential-list">
             <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> ADA Board Certified (American Dental Association)</li>
             <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> ADM Board Certified (Mexican Dental Association)</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 3-ON-8™ Patented Protocol Developer</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strip-width="2"><polyline points="20 6 9 17 4 12"/></svg> 3-ON-8™ Patented Protocol Developer</li>
             <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Lifetime Warranty on All Implants</li>
             <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 17,000+ Implants Successfully Placed</li>
           </ul>
@@ -638,6 +681,11 @@
           <h3>Dr. José Moguel</h3>
           <div class="profile-title">Periodontist & Dental Implant Specialist</div>
           <div class="profile-cred">DDS · ADA & ADM Board Certified</div>
+          <div style="margin-bottom: 12px;">
+            <span class="profile-badge">ADA</span>
+            <span class="profile-badge">ADM</span>
+            <span class="profile-badge">3-ON-8™</span>
+          </div>
           <div class="profile-contact">
             <a href="tel:+19283744575" title="Call"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
             <a href="mailto:appointment@dentalimplantsinmexico.info" title="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
@@ -682,18 +730,21 @@
     </div>
   </section>
 
-  <!-- TREATMENTS -->
+  <!-- TREATMENTS WITH PRICING -->
   <section class="treatments-section">
     <div class="container">
       <h2 class="section-title">Treatment Options</h2>
-      <p class="section-subtitle">Advanced implant procedures for every need</p>
+      <p class="section-subtitle">Advanced implant procedures with transparent pricing</p>
       <div class="treatment-grid">
         <a href="/treatments/allon4" class="treatment-card">
           <img src="/images/all-on-four-implants.webp" alt="All-on-4 dental implants">
           <div class="treatment-body">
             <h3>All-on-4 Implants</h3>
             <p>Full-arch restoration with 4 implants per jaw</p>
-            <span class="treatment-link">Learn More →</span>
+            <div class="treatment-price">
+              <span class="price-from">From</span>
+              <span class="price-amount">$6,000</span>
+            </div>
           </div>
         </a>
         <a href="/treatments/3on8" class="treatment-card">
@@ -701,7 +752,10 @@
           <div class="treatment-body">
             <h3>3-ON-8 Protocol</h3>
             <p>Patented full-mouth restoration system</p>
-            <span class="treatment-link">Learn More →</span>
+            <div class="treatment-price">
+              <span class="price-from">From</span>
+              <span class="price-amount">$15,000</span>
+            </div>
           </div>
         </a>
         <a href="/treatments/allon6" class="treatment-card">
@@ -709,7 +763,10 @@
           <div class="treatment-body">
             <h3>All-on-6 Implants</h3>
             <p>Enhanced stability with 6 implants per jaw</p>
-            <span class="treatment-link">Learn More →</span>
+            <div class="treatment-price">
+              <span class="price-from">From</span>
+              <span class="price-amount">$8,000</span>
+            </div>
           </div>
         </a>
         <a href="/treatments/single-tooth-implant" class="treatment-card">
@@ -717,7 +774,10 @@
           <div class="treatment-body">
             <h3>Single Tooth Implant</h3>
             <p>Natural-looking individual tooth replacement</p>
-            <span class="treatment-link">Learn More →</span>
+            <div class="treatment-price">
+              <span class="price-from">From</span>
+              <span class="price-amount">$1,500</span>
+            </div>
           </div>
         </a>
       </div>
@@ -728,7 +788,7 @@
   <section class="cost-section">
     <div class="container">
       <h2 class="section-title">Cost Comparison</h2>
-      <p class="section-subtitle">Save 60-70% vs US prices — transparent pricing</p>
+      <p class="section-subtitle">Save 60-70% vs US prices — transparent, no hidden fees</p>
       <table class="cost-table">
         <thead>
           <tr>
@@ -741,38 +801,83 @@
         <tbody>
           <tr>
             <td>Single Tooth Implant</td>
-            <td>$4,000 - $6,000</td>
-            <td>$1,500 - $2,500</td>
-            <td class="savings">Save 60%</td>
+            <td><span class="us-price">$4,000 - $6,000</span></td>
+            <td><span class="mx-price">$1,500 - $2,500</span></td>
+            <td><span class="savings">Save 60%</span></td>
           </tr>
           <tr>
             <td>All-on-4 (per arch)</td>
-            <td>$20,000 - $30,000</td>
-            <td>$6,000 - $9,000</td>
-            <td class="savings">Save 70%</td>
+            <td><span class="us-price">$20,000 - $30,000</span></td>
+            <td><span class="mx-price">$6,000 - $9,000</span></td>
+            <td><span class="savings">Save 70%</span></td>
           </tr>
           <tr>
             <td>All-on-6 (per arch)</td>
-            <td>$25,000 - $35,000</td>
-            <td>$8,000 - $12,000</td>
-            <td class="savings">Save 66%</td>
+            <td><span class="us-price">$25,000 - $35,000</span></td>
+            <td><span class="mx-price">$8,000 - $12,000</span></td>
+            <td><span class="savings">Save 66%</span></td>
           </tr>
           <tr>
             <td>3-ON-8 (full mouth)</td>
-            <td>$45,000 - $60,000</td>
-            <td>$15,000 - $20,000</td>
-            <td class="savings">Save 67%</td>
+            <td><span class="us-price">$45,000 - $60,000</span></td>
+            <td><span class="mx-price">$15,000 - $20,000</span></td>
+            <td><span class="savings">Save 67%</span></td>
           </tr>
           <tr>
             <td>Full Mouth Reconstruction</td>
-            <td>$40,000 - $80,000</td>
-            <td>$12,000 - $25,000</td>
-            <td class="savings">Save 69%</td>
+            <td><span class="us-price">$40,000 - $80,000</span></td>
+            <td><span class="mx-price">$12,000 - $25,000</span></td>
+            <td><span class="savings">Save 69%</span></td>
           </tr>
         </tbody>
       </table>
       <div style="text-align: center; margin-top: 32px;">
         <a href="/cost-calculator" class="btn-solid">Get Your Personalized Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE/AFTER & REAL PATIENTS -->
+  <section class="patients-section">
+    <div class="container">
+      <h2 class="section-title">Real Patients, Real Results</h2>
+      <p class="section-subtitle">Dr. Moguel performing procedures at the Los Algodones clinic</p>
+      <div class="patients-grid">
+        <div class="patient-card">
+          <img src="/images/dr-moguel-procedure-closeup.jpg" alt="Dr. Moguel performing dental procedure">
+          <div class="patient-label">
+            <p>Dr. Moguel at Work</p>
+            <span>Precision dental implant surgery</span>
+          </div>
+        </div>
+        <div class="patient-card">
+          <img src="/images/dental-implant-procedure-wideshot.jpg" alt="Patient receiving dental implant procedure at Dr. Moguel's clinic">
+          <div class="patient-label">
+            <p>State-of-the-Art Equipment</p>
+            <span>US-standard dental technology</span>
+          </div>
+        </div>
+        <div class="patient-card">
+          <img src="/images/patient-dental-treatment.jpg" alt="Patient during dental implant treatment at Los Algodones clinic">
+          <div class="patient-label">
+            <p>Comfortable Treatment Experience</p>
+            <span>Patients in safe, expert hands</span>
+          </div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; max-width: 700px; margin-left: auto; margin-right: auto;">
+        <div class="patient-card">
+          <img src="/images/patient-before-treatment.jpg" alt="Patient before dental treatment" style="height: 200px;">
+          <div class="patient-label">
+            <p>Before</p>
+          </div>
+        </div>
+        <div class="patient-card">
+          <img src="/images/patient-during-treatment.jpg" alt="Patient during dental implant procedure" style="height: 200px;">
+          <div class="patient-label">
+            <p>During Procedure</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -802,6 +907,35 @@
           <div class="step-num">4</div>
           <h3>New Smile</h3>
           <p>Return home with a beautiful, functional smile — and major savings</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE SECTION -->
+  <section class="guarantee-section">
+    <div class="container">
+      <div class="guarantee-badge">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#5EEAD4" stroke-width="2"><path d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"/><polyline points="9 12 11 14 15 10"/></svg>
+      </div>
+      <h2>Lifetime Warranty on All Implants</h2>
+      <p>Dr. Moguel stands behind every implant he places. Your investment is protected for life — if any implant fails, we'll replace it at no cost to you.</p>
+      <div class="guarantee-features">
+        <div class="gf-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Lifetime implant replacement
+        </div>
+        <div class="gf-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Free consultation — no obligation
+        </div>
+        <div class="gf-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          US-standard sterilization protocols
+        </div>
+        <div class="gf-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          English-speaking staff
         </div>
       </div>
     </div>
@@ -842,26 +976,67 @@
   <section class="testimonials-section">
     <div class="container">
       <h2 class="section-title">Patient Stories</h2>
-      <p class="section-subtitle">Real results from real patients</p>
+      <p class="section-subtitle">Real results from real patients across the US</p>
       <div class="testimonial-grid">
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
           <p class="quote">"I saved over $20,000 on my All-on-4 procedure. Dr. Moguel and his team were incredibly professional, and the clinic was cleaner than any dental office I've been to in the US."</p>
           <div class="author">Robert M.</div>
           <div class="author-meta">Phoenix, AZ · All-on-4 Patient</div>
+          <div class="savings-badge">Saved $20,000+</div>
         </div>
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
           <p class="quote">"After researching for months, I chose Dr. Moguel for his 3-ON-8 protocol. Best decision I've ever made. My new teeth look and feel completely natural."</p>
           <div class="author">Sarah K.</div>
           <div class="author-meta">San Diego, CA · 3-ON-8 Patient</div>
+          <div class="savings-badge">Saved $30,000+</div>
         </div>
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
           <p class="quote">"The whole experience was smooth from start to finish. The video consultation before my trip made me feel confident, and the results exceeded my expectations."</p>
           <div class="author">James T.</div>
           <div class="author-meta">Tucson, AZ · Full Mouth Reconstruction</div>
+          <div class="savings-badge">Saved $45,000+</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Everything you need to know before booking</p>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>How much do dental implants cost in Mexico compared to the US?</summary>
+          <div class="faq-answer">Dental implants in Mexico cost 60-70% less than in the US. A single tooth implant that costs $4,000-$6,000 in the US costs $1,500-$2,500 with Dr. Moguel. Full-mouth All-on-4 that costs $20,000-$30,000 in the US costs $6,000-$9,000. Use our <a href="/cost-calculator" style="color: var(--primary-teal); font-weight: 700;">cost calculator</a> for a personalized estimate.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Is it safe to get dental implants in Los Algodones, Mexico?</summary>
+          <div class="faq-answer">Yes. Dr. José Moguel is ADA and ADM board-certified with 38+ years of experience and 17,000+ implants placed. His clinic uses US-standard technology and follows the same sterilization protocols as American dental offices. Los Algodones ("Molar City") is the world's largest dental tourism destination, treating thousands of American and Canadian patients every year.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How long does the dental implant procedure take?</summary>
+          <div class="faq-answer">Most procedures are completed in 2-4 days. Full-arch procedures like All-on-4 or 3-ON-8 can be done in a single visit of 3-5 days, including consultation, surgery, and fitting. We'll give you a specific timeline during your free consultation.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What warranty is offered on dental implants?</summary>
+          <div class="faq-answer">Dr. Moguel offers a lifetime warranty on all dental implants. If any implant fails, we'll replace it at no cost to you. Your investment is protected for life.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I get to Los Algodones from the US?</summary>
+          <div class="faq-answer">Los Algodones is located at the US-Mexico border, just 10 minutes from Yuma, Arizona. You can drive and walk across the border — no special paperwork needed for day visits. Many patients fly into Phoenix (3-hour drive) or San Diego (2.5-hour drive). Check our <a href="/border-crossing-checklist" style="color: var(--primary-teal); font-weight: 700;">border crossing checklist</a> for details.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need to speak Spanish?</summary>
+          <div class="faq-answer">No. Dr. Moguel and his staff speak fluent English. Los Algodones (Molar City) is built specifically for American and Canadian dental tourists, so English is spoken everywhere — at the clinic, restaurants, pharmacies, and shops.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Will my US dental insurance cover treatment in Mexico?</summary>
+          <div class="faq-answer">Many US dental insurance plans will reimburse you for treatment received in Mexico. We provide all documentation you need to file a claim. Check our <a href="/insurance-claim-guide" style="color: var(--primary-teal); font-weight: 700;">insurance claim guide</a> for step-by-step instructions.</div>
+        </details>
       </div>
     </div>
   </section>
@@ -878,93 +1053,70 @@
     </div>
   </section>
 
-
-  <!-- REAL PATIENTS SECTION -->
-  <section style="background: #fff; padding: 80px 0;">
-    <div class="container">
-      <h2 class="section-title">Real Patients, Real Results</h2>
-      <p class="section-subtitle">Dr. Moguel performing procedures at the Los Algodones clinic</p>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-        <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-          <img src="/images/dr-moguel-procedure-closeup.jpg" alt="Dr. Moguel performing dental procedure" style="width:100%; height:260px; object-fit:cover; display:block;">
-          <div style="padding: 16px; background: #fff; border-top: 3px solid #0D9488;">
-            <p style="font-weight: 700; color: #0F172A; margin: 0; font-size: 0.95rem;">Dr. Moguel at Work</p>
-            <p style="font-size: 0.8rem; color: #94A3B8; margin: 4px 0 0;">Precision dental implant surgery</p>
-          </div>
-        </div>
-        <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-          <img src="/images/dental-implant-procedure-wideshot.jpg" alt="Patient receiving dental implant procedure at Dr. Moguel's clinic" style="width:100%; height:260px; object-fit:cover; display:block;">
-          <div style="padding: 16px; background: #fff; border-top: 3px solid #0D9488;">
-            <p style="font-weight: 700; color: #0F172A; margin: 0; font-size: 0.95rem;">State-of-the-Art Equipment</p>
-            <p style="font-size: 0.8rem; color: #94A3B8; margin: 4px 0 0;">US-standard dental technology</p>
-          </div>
-        </div>
-        <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-          <img src="/images/patient-dental-treatment.jpg" alt="Patient during dental implant treatment at Los Algodones clinic" style="width:100%; height:260px; object-fit:cover; display:block;">
-          <div style="padding: 16px; background: #fff; border-top: 3px solid #0D9488;">
-            <p style="font-weight: 700; color: #0F172A; margin: 0; font-size: 0.95rem;">Comfortable Treatment Experience</p>
-            <p style="font-size: 0.8rem; color: #94A3B8; margin: 4px 0 0;">Patients in safe, expert hands</p>
-          </div>
-        </div>
-      </div>
-      <!-- Before/During comparison -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; max-width: 700px; margin-left: auto; margin-right: auto;">
-        <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center;">
-          <img src="/images/patient-before-treatment.jpg" alt="Patient before dental treatment" style="width:100%; height:200px; object-fit:cover; display:block;">
-          <div style="padding: 12px; background: #fff; border-top: 3px solid #94A3B8;">
-            <p style="font-weight: 700; color: #0F172A; margin: 0; font-size: 0.9rem;">Before</p>
-          </div>
-        </div>
-        <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center;">
-          <img src="/images/patient-during-treatment.jpg" alt="Patient during dental implant procedure" style="width:100%; height:200px; object-fit:cover; display:block;">
-          <div style="padding: 12px; background: #fff; border-top: 3px solid #0D9488;">
-            <p style="font-weight: 700; color: #0F172A; margin: 0; font-size: 0.9rem;">During Procedure</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CONTACT FORM -->
   <section class="contact-section">
     <div class="container">
       <h2 class="section-title">Your New Smile Awaits</h2>
       <p class="section-subtitle">Send us your questions or request a free consultation</p>
-      <form class="contact-form" action="https://lyra-52971c5e.base44.app/functions/captureLead" method="POST">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Name *</label>
-            <input type="text" name="name" required placeholder="Your full name">
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <div class="ci-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+19283744575">(928) 374-4575</a>
           </div>
-          <div class="form-group">
-            <label>Email *</label>
-            <input type="email" name="email" required placeholder="you@email.com">
+          <div class="ci-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:appointment@dentalimplantsinmexico.info">appointment@dentalimplantsinmexico.info</a>
           </div>
-          <div class="form-group">
-            <label>Phone *</label>
-            <input type="tel" name="phone" required placeholder="(928) 000-0000">
+          <div class="ci-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.4C18.2 1.2 15.2 0 12 0 5.4 0 .1 5.4.1 12c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.6c1.7.9 3.6 1.4 5.6 1.4 6.6 0 11.9-5.4 11.9-12 0-3.2-1.2-6.3-3.4-8.4z"/></svg>
+            <a href="https://wa.me/19283744575" target="_blank">WhatsApp: +1 928-374-4575</a>
+          </div>
+          <div class="ci-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Av. B y Calle 2da, Los Algodones, Baja California, MX</span>
+          </div>
+          <div class="ci-trust">
+            <p>✓ Free consultation — no obligation<br>✓ Lifetime warranty on all implants<br>✓ English-speaking staff<br>✓ Responds within 24 hours</p>
           </div>
         </div>
-        <div class="form-group">
-          <label>What treatment are you interested in?</label>
-          <select name="treatment">
-            <option value="">Select a treatment...</option>
-            <option value="all-on-4">All-on-4 Implants</option>
-            <option value="all-on-6">All-on-6 Implants</option>
-            <option value="3-on-8">3-ON-8 Protocol</option>
-            <option value="single-tooth">Single Tooth Implant</option>
-            <option value="full-mouth">Full Mouth Reconstruction</option>
-            <option value="other">Other / Not Sure</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message *</label>
-          <textarea name="message" required placeholder="Tell us about your dental needs, questions, or what you'd like to discuss..."></textarea>
-        </div>
-        <input type="hidden" name="sourceWebsite" value="dentalimplantsinmexico.info">
-        <button type="submit">Send Message</button>
-        <p class="form-disclaimer">Your information is confidential and will only be used to contact you about your dental needs. No spam, ever.</p>
-      </form>
+        <form class="contact-form" action="https://lyra-52971c5e.base44.app/functions/captureLead" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name *</label>
+              <input type="text" name="name" required placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" name="email" required placeholder="you@email.com">
+            </div>
+            <div class="form-group">
+              <label>Phone *</label>
+              <input type="tel" name="phone" required placeholder="(928) 000-0000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>What treatment are you interested in?</label>
+            <select name="treatment">
+              <option value="">Select a treatment...</option>
+              <option value="all-on-4">All-on-4 Implants (from $6,000)</option>
+              <option value="all-on-6">All-on-6 Implants (from $8,000)</option>
+              <option value="3-on-8">3-ON-8 Protocol (from $15,000)</option>
+              <option value="single-tooth">Single Tooth Implant (from $1,500)</option>
+              <option value="full-mouth">Full Mouth Reconstruction (from $12,000)</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message *</label>
+            <textarea name="message" required placeholder="Tell us about your dental needs, questions, or what you'd like to discuss..."></textarea>
+          </div>
+          <input type="hidden" name="sourceWebsite" value="dentalimplantsinmexico.info">
+          <button type="submit">Send Message →</button>
+          <p class="form-disclaimer">Your information is confidential and will only be used to contact you about your dental needs. No spam, ever.</p>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -988,7 +1140,6 @@
             <p>💬 WhatsApp: +1 928-374-4575</p>
           </div>
         </div>
-
         <div class="footer-col">
           <h4>Treatments</h4>
           <ul>
@@ -1006,7 +1157,6 @@
             <li><a href="/treatments/sedation-dentistry">Sedation Dentistry</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h4>Resources</h4>
           <ul>
@@ -1028,7 +1178,6 @@
             <li><a href="/dental-implants/complications">Complications</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h4>US City Pages</h4>
           <ul>
@@ -1041,7 +1190,6 @@
             <li><a href="/dental-implants-las-vegas">Las Vegas, NV</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
@@ -1053,7 +1201,6 @@
           </ul>
         </div>
       </div>
-
       <div class="footer-bottom">
         <div>&copy; 2026 Dr. José Moguel Dental Implants in Mexico. All Rights Reserved.</div>
         <div>
@@ -1064,10 +1211,36 @@
     </div>
   </footer>
 
+  <!-- STICKY CTA BAR -->
+  <div class="sticky-cta" id="stickyCta">
+    <span class="sticky-text">⚡ <strong>Free consultation</strong> — limited slots this month</span>
+    <a href="tel:+19283744575" class="sticky-call">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      Call Now
+    </a>
+    <a href="https://wa.me/19283744575" target="_blank" class="sticky-wa">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M20.5 3.4C18.2 1.2 15.2 0 12 0 5.4 0 .1 5.4.1 12c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.6c1.7.9 3.6 1.4 5.6 1.4 6.6 0 11.9-5.4 11.9-12 0-3.2-1.2-6.3-3.4-8.4z"/></svg>
+      WhatsApp
+    </a>
+    <a href="/contact" class="sticky-form">Free Consult</a>
+  </div>
+
   <!-- WhatsApp float button -->
   <a href="https://wa.me/19283744575" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M20.5,3.4C18.2,1.2,15.2,0,12,0C5.4,0,0.1,5.4,0.1,12c0,2.1,0.6,4.1,1.6,5.9L0,24l6.3-1.6c1.7,0.9,3.6,1.4,5.6,1.4 c6.6,0,11.9-5.4,11.9-12C23.9,8.8,22.7,5.7,20.5,3.4z M12,21.9c-1.8,0-3.6-0.5-5.2-1.4l-0.4-0.2l-3.9,1l1-3.8l-0.3-0.4 c-1-1.6-1.6-3.5-1.6-5.5c0-5.5,4.5-10,10-10c2.7,0,5.2,1,7.1,2.9c1.9,1.9,2.9,4.4,2.9,7.1C22,17.4,17.5,21.9,12,21.9z M17.5,14.4 c-0.3-0.2-1.8-0.9-2.1-1c-0.3-0.1-0.5-0.2-0.7,0.1s-0.8,1-1,1.1c-0.2,0.2-0.4,0.2-0.7,0.1c-0.3-0.1-1.3-0.5-2.5-1.6 c-0.9-0.8-1.5-1.8-1.7-2.1c-0.2-0.3,0-0.5,0.1-0.6c0.1-0.1,0.3-0.3,0.4-0.5c0.1-0.1,0.2-0.3,0.3-0.5c0.1-0.2,0-0.4,0-0.5 c0-0.1-0.7-1.7-0.9-2.2C8.6,5.3,8.4,5.3,8.2,5.3c-0.2,0-0.4,0-0.6,0c-0.2,0-0.5,0.1-0.8,0.4C6.5,6,5.7,6.8,5.7,8.4 c0,1.6,1.2,3.2,1.3,3.4c0.1,0.2,2.3,3.5,5.6,4.9c0.8,0.3,1.4,0.5,1.9,0.7c0.8,0.2,1.5,0.2,2.1,0.1c0.6-0.1,1.8-0.7,2.1-1.5 C19,15.2,19,14.6,18.9,14.5C18.8,14.4,18.6,14.3,17.5,14.4z"/></svg>
   </a>
+
+  <script>
+    // Sticky CTA shows after scrolling past hero
+    window.addEventListener('scroll', function() {
+      var sticky = document.getElementById('stickyCta');
+      if (window.scrollY > 600) {
+        sticky.classList.add('visible');
+      } else {
+        sticky.classList.remove('visible');
+      }
+    });
+  </script>
 
 </body>
 </html>
