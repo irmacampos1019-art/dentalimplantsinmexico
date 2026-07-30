@@ -236,5 +236,22 @@
 <a href="https://wa.me/19283744575" class="whatsapp-float" title="Chat on WhatsApp">💬</a>
 
 <script src="/js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var mobileBtn = document.querySelector(".mobile-menu-btn");
+  var navUl = document.querySelector("nav ul");
+  if (mobileBtn && navUl) {
+    mobileBtn.addEventListener("click", function() {
+      navUl.classList.toggle("open");
+    });
+    // Close menu when a link is clicked
+    navUl.querySelectorAll("a").forEach(function(link) {
+      link.addEventListener("click", function() {
+        navUl.classList.remove("open");
+      });
+    });
+  }
+});
+</script>
 </body>
 </html>
