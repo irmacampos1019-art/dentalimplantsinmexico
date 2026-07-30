@@ -262,15 +262,19 @@
     .credential-list li { display: flex; align-items: center; gap: 10px; padding: 8px 0; color: var(--text-secondary); }
     .credential-list svg { color: var(--primary-teal); flex-shrink: 0; }
 
-    .profile-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 32px; text-align: center; box-shadow: var(--shadow-md); }
-    .profile-card img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px; border: 4px solid var(--primary-teal-light); }
-    .profile-card h3 { font-size: 1.3rem; margin-bottom: 4px; }
-    .profile-card .profile-title { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 4px; }
-    .profile-card .profile-cred { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 16px; }
-    .profile-card .profile-contact { display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; }
-    .profile-card .profile-contact a { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--light-bg); color: var(--text-secondary); transition: var(--transition); text-decoration: none; }
-    .profile-card .profile-contact a:hover { background: var(--primary-teal); color: #fff; }
+    .profile-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 0; text-align: center; box-shadow: var(--shadow-md); overflow: hidden; }
+    .profile-card .profile-image-wrap { position: relative; overflow: hidden; }
+    .profile-card .profile-image-wrap img { width: 100%; height: 420px; object-fit: cover; object-position: center top; display: block; }
+    .profile-card .profile-image-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 20px 20px 16px; text-align: left; }
+    .profile-card .profile-image-overlay h3 { color: #fff; font-size: 1.4rem; margin-bottom: 2px; }
+    .profile-card .profile-image-overlay .profile-title { color: rgba(255,255,255,0.9); font-size: 0.85rem; margin-bottom: 2px; }
+    .profile-card .profile-image-overlay .profile-cred { color: rgba(255,255,255,0.8); font-size: 0.8rem; }
+    .profile-card .profile-body { padding: 20px 24px 24px; }
+    .profile-card .profile-badges { margin-bottom: 14px; }
     .profile-card .profile-badge { display: inline-block; background: var(--primary-teal-light); color: var(--primary-teal); font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 9999px; margin: 0 2px; }
+    .profile-card .profile-contact { display: flex; justify-content: center; gap: 12px; }
+    .profile-card .profile-contact a { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--light-bg); color: var(--text-secondary); transition: var(--transition); text-decoration: none; }
+    .profile-card .profile-contact a:hover { background: var(--primary-teal); color: #fff; }
 
     /* === CLINIC TOUR === */
     .clinic-section { background: var(--light-bg); }
@@ -490,6 +494,7 @@
 
       .about-grid { grid-template-columns: 1fr; }
       .about-grid .profile-card { margin-bottom: 24px; }
+      .profile-card .profile-image-wrap img { height: 320px; }
 
       .cost-table { font-size: 0.8rem; }
       .cost-table th, .cost-table td { padding: 10px 12px; }
@@ -741,19 +746,27 @@
           <a href="/about" class="btn-solid">Learn More About Dr. Moguel</a>
         </div>
         <div class="profile-card">
-          <img src="/images/dr-jose-moguel-portrait.webp" alt="Dr. José Moguel — Periodontist & Dental Implant Specialist">
-          <h3>Dr. José Moguel</h3>
-          <div class="profile-title">Periodontist & Dental Implant Specialist</div>
-          <div class="profile-cred">DDS · ADA & ADM Board Certified</div>
-          <div style="margin-bottom: 12px;">
-            <span class="profile-badge">ADA</span>
-            <span class="profile-badge">ADM</span>
-            <span class="profile-badge">3-ON-8™</span>
+          <div class="profile-image-wrap">
+            <img src="/images/dr-moguel-dental-implants.webp" alt="Dr. José Moguel — Periodontist & Dental Implant Specialist" loading="lazy">
+            <div class="profile-image-overlay">
+              <h3>Dr. José Moguel</h3>
+              <div class="profile-title">Periodontist & Dental Implant Specialist</div>
+              <div class="profile-cred">DDS · ADA & ADM Board Certified</div>
+            </div>
           </div>
-          <div class="profile-contact">
-            <a href="tel:+19283744575" title="Call"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
-            <a href="mailto:appointment@dentalimplantsinmexico.info" title="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
-            <a href="https://wa.me/19283744575" target="_blank" title="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.4C18.2 1.2 15.2 0 12 0 5.4 0 .1 5.4.1 12c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.6c1.7.9 3.6 1.4 5.6 1.4 6.6 0 11.9-5.4 11.9-12 0-3.2-1.2-6.3-3.4-8.4z"/></svg></a>
+          <div class="profile-body">
+            <div class="profile-badges">
+              <span class="profile-badge">ADA</span>
+              <span class="profile-badge">ADM</span>
+              <span class="profile-badge">3-ON-8™</span>
+              <span class="profile-badge">38+ Years</span>
+              <span class="profile-badge">17,000+ Implants</span>
+            </div>
+            <div class="profile-contact">
+              <a href="tel:+19283744575" title="Call"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
+              <a href="mailto:appointment@dentalimplantsinmexico.info" title="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+              <a href="https://wa.me/19283744575" target="_blank" title="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.4C18.2 1.2 15.2 0 12 0 5.4 0 .1 5.4.1 12c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.6c1.7.9 3.6 1.4 5.6 1.4 6.6 0 11.9-5.4 11.9-12 0-3.2-1.2-6.3-3.4-8.4z"/></svg></a>
+            </div>
           </div>
         </div>
       </div>
@@ -1045,25 +1058,34 @@
       <p class="section-subtitle">Real results from real patients across the US</p>
       <div class="testimonial-grid">
         <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"I saved over $20,000 on my All-on-4 procedure. Dr. Moguel and his team were incredibly professional, and the clinic was cleaner than any dental office I've been to in the US."</p>
-          <div class="author">Robert M.</div>
-          <div class="author-meta">Phoenix, AZ · All-on-4 Patient</div>
-          <div class="savings-badge">Saved $20,000+</div>
+          <img class="testimonial-img" src="/images/clinic-treatment-room.jpg" alt="Dr. Moguel's modern treatment room where All-on-4 procedures are performed" loading="lazy">
+          <div class="testimonial-body">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"I saved over $20,000 on my All-on-4 procedure. Dr. Moguel and his team were incredibly professional, and the clinic was cleaner than any dental office I've been to in the US."</p>
+            <div class="author">Robert M.</div>
+            <div class="author-meta">Phoenix, AZ · All-on-4 Patient</div>
+            <div class="savings-badge">Saved $20,000+</div>
+          </div>
         </div>
         <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"After researching for months, I chose Dr. Moguel for his 3-ON-8 protocol. Best decision I've ever made. My new teeth look and feel completely natural."</p>
-          <div class="author">Sarah K.</div>
-          <div class="author-meta">San Diego, CA · 3-ON-8 Patient</div>
-          <div class="savings-badge">Saved $30,000+</div>
+          <img class="testimonial-img" src="/images/dr-moguel-procedure-closeup.jpg" alt="Dr. Moguel performing precision dental implant surgery" loading="lazy">
+          <div class="testimonial-body">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"After researching for months, I chose Dr. Moguel for his 3-ON-8 protocol. Best decision I've ever made. My new teeth look and feel completely natural."</p>
+            <div class="author">Sarah K.</div>
+            <div class="author-meta">San Diego, CA · 3-ON-8 Patient</div>
+            <div class="savings-badge">Saved $30,000+</div>
+          </div>
         </div>
         <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"The whole experience was smooth from start to finish. The video consultation before my trip made me feel confident, and the results exceeded my expectations."</p>
-          <div class="author">James T.</div>
-          <div class="author-meta">Tucson, AZ · Full Mouth Reconstruction</div>
-          <div class="savings-badge">Saved $45,000+</div>
+          <img class="testimonial-img" src="/images/dental-implant-procedure-wideshot.jpg" alt="Full mouth reconstruction procedure at Dr. Moguel's Los Algodones clinic" loading="lazy">
+          <div class="testimonial-body">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"The whole experience was smooth from start to finish. The video consultation before my trip made me feel confident, and the results exceeded my expectations."</p>
+            <div class="author">James T.</div>
+            <div class="author-meta">Tucson, AZ · Full Mouth Reconstruction</div>
+            <div class="savings-badge">Saved $45,000+</div>
+          </div>
         </div>
       </div>
     </div>
