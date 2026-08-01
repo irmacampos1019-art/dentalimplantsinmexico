@@ -5,5 +5,7 @@ Disallow: /admin
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
+Disallow: /Login
+Disallow: /Register
 
 Sitemap: https://dentalimplantsinmexico.info/sitemap.xml

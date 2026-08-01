@@ -5,7 +5,20 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/dental-implants", "destination": "/treatments", "permanent": true }
+    { "source": "/dental-implants", "destination": "/treatments", "permanent": true },
+    { "source": "/blog/all-on-4-vs-3-on-8-full-arch-implants", "destination": "/blog/is-it-safe-to-get-dental-implants-in-mexico", "permanent": true },
+    { "source": "/blog/bone-grafting-sinus-lifts-explained", "destination": "/blog/molar-city-guide-los-algodones-dental-tourism", "permanent": true },
+    { "source": "/blog/why-americans-choose-mexico-dental-implants", "destination": "/blog/how-much-do-dental-implants-cost-in-mexico", "permanent": true },
+    { "source": "/Login", "destination": "/", "permanent": true },
+    { "source": "/Register", "destination": "/", "permanent": true },
+    { "source": "/dental-implants/consultation", "destination": "/contact", "permanent": true },
+    { "source": "/full-mouth-reconstruction", "destination": "/treatments/full-mouth-reconstruction", "permanent": true },
+    { "source": "/bone-grafting", "destination": "/treatments/bone-grafting", "permanent": true },
+    { "source": "/single-tooth-implant", "destination": "/treatments/single-tooth-implant", "permanent": true },
+    { "source": "/implant-supported-dentures", "destination": "/treatments/implant-supported-dentures", "permanent": true },
+    { "source": "/sinus-lift", "destination": "/treatments/sinus-lift", "permanent": true },
+    { "source": "/gum-disease-treatment", "destination": "/treatments/gum-disease-treatment", "permanent": true },
+    { "source": "/teeth-in-a-day", "destination": "/treatments/teeth-in-a-day", "permanent": true }
   ],
   "headers": [
     {
