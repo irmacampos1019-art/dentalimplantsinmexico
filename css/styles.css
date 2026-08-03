@@ -23,11 +23,11 @@
   --slate-900: #0F172A;
   --slate-800: #1E293B;             /* Secondary dark background */
   --slate-700: #334155;             /* Border/text slate */
-  --slate-600: #475569;             /* Subheadings slate */
+  --slate-600: #334155;             /* Subheadings slate */
   --slate-500: #64748B;             /* Body text slate-500 */
   --body-text: #64748B;             /* Standard slate-500 for body text */
-  --light-gray: #F8FAFC;            /* Slate-50 for subtle white bg */
-  --light-bg: #F8FAFC;
+  --light-gray: #F1F5F9;            /* Slate-50 for subtle white bg */
+  --light-bg: #F1F5F9;
   --white: #FFFFFF;
   
   /* Statuses / Highlights */
@@ -606,7 +606,7 @@ nav a:hover::after, nav a.active::after {
 
 .hero-subheadline {
   font-size: 1.5rem;
-  color: #94A3B8 !important;
+  color: #64748B !important;
   margin-bottom: 24px;
 }
 
@@ -640,7 +640,7 @@ nav a:hover::after, nav a.active::after {
 
 .hero-stat-label {
   font-size: 0.95rem;
-  color: #E2E8F0;
+  color: #CBD5E1;
   font-weight: 500;
   line-height: 1.4;
 }
@@ -765,7 +765,7 @@ nav a:hover::after, nav a.active::after {
 .hero-stat .label {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #94A3B8;
+  color: #64748B;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -1244,7 +1244,7 @@ select:focus {
 }
 
 .cta-bar p {
-  color: #94A3B8;
+  color: #64748B;
   font-size: 1.15rem;
   max-width: 600px;
   margin: 0 auto 36px;
@@ -1279,7 +1279,7 @@ select:focus {
 footer {
   background-color: var(--slate-900) !important;
   background-image: var(--dark-gradient) !important;
-  color: #94A3B8;
+  color: #64748B;
   padding: 100px 24px 48px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -1316,7 +1316,7 @@ footer ul li {
 }
 
 footer a {
-  color: #94A3B8;
+  color: #64748B;
   text-decoration: none;
   transition: var(--transition);
 }
