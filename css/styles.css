@@ -2684,3 +2684,429 @@ img { max-width: 100%; height: auto; }
 @media print {
   .whatsapp-float, .sticky-cta, .mobile-menu-btn, .fixed-social-sidebar { display: none !important; }
 }
+
+/* ==========================================================================
+   MOBILE OPTIMIZATION v2 — Comprehensive Touch & Performance Enhancements
+   --------------------------------------------------------------------------
+   Addresses: tap targets, safe areas, font sizes, touch scrolling, 
+   image loading, sticky header, form usability, and overflow prevention
+   ========================================================================== */
+
+/* --- Safe Area Insets (notched phones — iPhone X+, Pixel 3+) --- */
+@supports (padding: env(safe-area-inset-top)) {
+  .site-header, header, .sticky-cta {
+    padding-top: env(safe-area-inset-top);
+  }
+  .whatsapp-float {
+    bottom: calc(70px + env(safe-area-inset-bottom));
+  }
+  .footer-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .utility-bar {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* --- Tap Highlight & Touch Action --- */
+* {
+  -webkit-tap-highlight-color: rgba(13, 148, 136, 0.15);
+  -webkit-touch-callout: none;
+}
+
+a, button, [role="button"], .btn-pill-solid, .btn-pill-outline,
+.btn-solid, .btn-outline, .btn-primary, .btn-secondary {
+  -webkit-tap-highlight-color: rgba(13, 148, 136, 0.25);
+  touch-action: manipulation;
+}
+
+/* --- Touch Target Minimum Sizing (44x44px Apple/Google guideline) --- */
+@media (max-width: 991px) {
+  nav a, .site-nav a, .mobile-menu-btn,
+  .header-phone, .header-consult, .btn-pill-solid, .btn-pill-outline,
+  .btn-solid, .btn-outline, .btn-primary, .btn-secondary,
+  .faq-item summary, .contact-form button, .contact-form input[type="submit"],
+  .sticky-cta a, .footer-links a {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Mobile menu links need full-width tap area */
+  nav ul li, .site-nav li {
+    width: 100%;
+  }
+  nav ul a, .site-nav a {
+    display: block;
+    padding: 14px 8px;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(13, 148, 136, 0.08);
+  }
+  
+  /* Sticky CTA buttons bigger */
+  .sticky-cta a {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Fix: Prevent horizontal scroll from any element --- */
+@media (max-width: 991px) {
+  body, html {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
+  /* Any table or pre — scroll horizontally instead of overflowing */
+  table, pre, .cost-table, .compare-table, .comparison-table {
+    max-width: 100%;
+  }
+  
+  /* Fix: chart circles scale down */
+  .chart-circle {
+    width: 140px;
+    height: 140px;
+  }
+  .chart-circle::after {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-circle {
+    width: 120px;
+    height: 120px;
+  }
+  .chart-circle::after {
+    width: 95px;
+    height: 95px;
+  }
+}
+
+/* --- Improved Mobile Typography --- */
+@media (max-width: 767px) {
+  /* Body text minimum 16px to prevent iOS auto-zoom */
+  body {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* Small labels still readable */
+  .logo-sub, .logo-subtitle {
+    font-size: 0.7rem;
+  }
+  
+  /* Hero headline responsive */
+  .hero h1, h1 {
+    font-size: 1.6rem;
+    line-height: 1.25;
+  }
+  
+  /* Section titles */
+  .section-title, h2 {
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+  
+  h3 {
+    font-size: 1.15rem;
+  }
+  
+  /* Paragraph text */
+  p, li {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  
+  /* FAQ answer text */
+  .faq-answer, .faq-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1, h1 {
+    font-size: 1.4rem;
+  }
+  
+  .hero .hero-tagline, .hero .hero-italic {
+    font-size: 0.9rem;
+  }
+  
+  p, li {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Mobile Menu Improvements --- */
+@media (max-width: 991px) {
+  /* Animate mobile menu open/close */
+  nav ul, .site-nav {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  
+  nav ul:not(.open), .site-nav:not(.active) {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+  }
+  
+  nav ul.open, .site-nav.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
+  /* Make the mobile menu button more visible */
+  .mobile-menu-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    color: var(--dark, #0F172A);
+  }
+  
+  /* Header logo area adjustments */
+  .site-logo img, .logo img {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .site-logo .logo-name, .logo {
+    font-size: 1.05rem;
+  }
+}
+
+/* --- Image Mobile Optimization --- */
+@media (max-width: 767px) {
+  /* Profile images — reduce fixed heights */
+  .profile-card .profile-image-wrap img {
+    height: 260px;
+  }
+  
+  /* Clinic/treatment card images */
+  .clinic-card img {
+    height: 180px;
+  }
+  .treatment-card img {
+    height: 140px;
+  }
+  .ba-card img {
+    height: 180px;
+  }
+  
+  /* Gallery — single column on small screens */
+  .image-gallery, .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Hero background — less padding on small screens */
+  .hero, .hero-custom {
+    background-attachment: scroll !important;
+    padding: 48px 0 48px;
+  }
+  
+  /* Feature panels — stack with proper spacing */
+  .feature-panels {
+    gap: 0;
+  }
+  .feature-panel {
+    padding: 24px 20px;
+  }
+}
+
+/* --- Form Mobile Optimization --- */
+@media (max-width: 991px) {
+  /* Prevent iOS auto-zoom on input focus */
+  input, select, textarea {
+    font-size: 16px !important;
+    -webkit-appearance: none;
+    border-radius: 8px;
+  }
+  
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%230D9488' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+  }
+  
+  /* Form groups — full width */
+  .form-group, .form-row {
+    width: 100%;
+  }
+  
+  .contact-form .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  /* Submit button — full width, easy to tap */
+  .contact-form button,
+  .contact-form input[type="submit"],
+  .calc-submit,
+  button[type="submit"] {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+}
+
+/* --- Sticky Header Mobile Improvements --- */
+@media (max-width: 767px) {
+  header, .site-header {
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  }
+  
+  .header-inner {
+    padding: 8px 14px;
+    gap: 8px;
+  }
+  
+  /* Utility bar — hide on very small screens to save space */
+  .utility-bar {
+    display: none;
+  }
+}
+
+/* --- Footer Mobile Improvements --- */
+@media (max-width: 767px) {
+  .footer-grid {
+    gap: 24px;
+  }
+  
+  .footer-links h4 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  
+  .footer-links a {
+    padding: 6px 0;
+    display: block;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-brand p {
+    font-size: 0.85rem;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    font-size: 0.8rem;
+  }
+}
+
+/* --- WhatsApp Float — Better Mobile Positioning --- */
+@media (max-width: 767px) {
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+    right: 16px;
+    font-size: 1.6rem;
+    border-radius: 50%;
+    z-index: 998;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  }
+}
+
+/* --- Cost Calculator Mobile --- */
+@media (max-width: 767px) {
+  .calc-grid, .calc-inputs {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .calc-result {
+    padding: 20px;
+    font-size: 1rem;
+  }
+  
+  .calc-result .price {
+    font-size: 1.5rem;
+  }
+  
+  /* Cost table — card-like layout on mobile */
+  .cost-table, .compare-table, .comparison-table {
+    font-size: 0.85rem;
+  }
+  
+  .cost-table th, .cost-table td,
+  .compare-table th, .compare-table td {
+    padding: 12px 10px;
+  }
+}
+
+/* --- Timeline Mobile --- */
+@media (max-width: 767px) {
+  .timeline {
+    padding-left: 20px;
+    margin: 24px 0;
+  }
+  .timeline::before {
+    left: 6px;
+  }
+  .timeline-step {
+    padding-left: 16px;
+    margin-bottom: 20px;
+  }
+  .timeline-step .step-num {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Social Sidebar — Hide on mobile --- */
+@media (max-width: 991px) {
+  .social-sidebar, .fixed-social-sidebar {
+    display: none !important;
+  }
+}
+
+/* --- Performance: Reduce animations on mobile --- */
+@media (max-width: 767px) {
+  .animate-float, .animate-fadeIn {
+    animation: none;
+  }
+  
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.2s !important;
+  }
+  
+  /* Reduce section padding for faster scrolling */
+  section {
+    padding: 40px 0;
+  }
+}
+
+/* --- Landscape Phone Adjustments --- */
+@media (max-width: 991px) and (orientation: landscape) {
+  .hero, .hero-custom {
+    padding: 40px 0 40px;
+  }
+  section {
+    padding: 36px 0;
+  }
+}
+
+/* --- Print styles (keep) --- */
+@media print {
+  .whatsapp-float, .sticky-cta, .mobile-menu-btn,
+  .social-sidebar, .utility-bar { display: none !important; }
+  body { overflow: visible; }
+  section { padding: 20px 0; page-break-inside: avoid; }
+}
