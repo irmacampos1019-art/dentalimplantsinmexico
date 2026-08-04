@@ -29,7 +29,8 @@
   <meta name="twitter:title" content="Los Algodones Border Crossing Checklist 2026">
   <meta name="twitter:description" content="Everything you need to cross the border for dental work in Los Algodones — documents, parking, walk times, what to bring, and tips from 17,000+ patients.">
   
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/css/styles.css"></noscript>
   
   <!-- Structured Data: BreadcrumbList -->
   <script type="application/ld+json">
@@ -255,6 +256,44 @@ document.addEventListener("DOMContentLoaded", function() {
 @media (min-width: 768px) {
   .mobile-contact-bar { display: none !important; }
 }
+
+/* === MOBILE OPTIMIZATION === */
+@media (max-width:768px){
+a,button{min-height:44px;}
+.btn-solid,.btn-outline,.btn-primary,.btn-secondary{min-height:48px;padding:14px 24px;font-size:1rem;}
+.container{padding:0 16px;}
+section{padding:48px 0;}
+h1{font-size:1.6rem;}
+h2{font-size:1.35rem;}
+h3{font-size:1.15rem;}
+p{font-size:0.95rem;line-height:1.7;}
+li{font-size:0.92rem;}
+nav ul{flex-direction:column;gap:12px;}
+.header-inner{padding:10px 16px;}
+.logo{font-size:1rem;}
+.logo-icon{width:36px;height:36px;}
+.logo-title{font-size:0.95rem;}
+.logo-subtitle{font-size:0.6rem;}
+nav{display:none;width:100%;position:absolute;top:100%;left:0;background:#fff;padding:16px;box-shadow:0 4px 20px rgba(0,0,0,0.1);}
+nav.active{display:flex;}
+nav ul{flex-direction:column;gap:8px;}
+nav a{padding:14px 8px;font-size:1rem;border-bottom:1px solid rgba(13,148,136,0.08);}
+.mobile-menu-btn{display:block;width:44px;height:44px;border-radius:8px;font-size:1.3rem;background:transparent;border:none;cursor:pointer;}
+.header-phone-btn,.phone-cta{display:none;}
+.header-consult-btn{padding:10px 16px;font-size:0.85rem;}
+.footer-grid{grid-template-columns:1fr !important;gap:24px !important;}
+.footer-bottom{flex-direction:column !important;text-align:center !important;gap:12px !important;}
+input,select,textarea{font-size:16px !important;-webkit-appearance:none;border-radius:8px;}
+table{max-width:100%;display:block;overflow-x:auto;font-size:0.85rem;}
+.whatsapp-float{width:48px !important;height:48px !important;bottom:16px !important;right:16px !important;}
+}
+html{-webkit-overflow-scrolling:touch;scroll-behavior:smooth;}
+html,body{overflow-x:hidden;max-width:100vw;}
+body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+@media(hover:none){.btn-solid:hover,.btn-outline:hover,.btn-primary:hover{transform:none;}}
+
+/* === MOBILE OPTIMIZATION END === */
+a,button{touch-action:manipulation;}
 </style>
 
 </body>
