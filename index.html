@@ -79,6 +79,46 @@ img[width][height]{aspect-ratio:auto;}
 section{min-height:100px;}
 
 main{display:block;}
+
+/* Mobile tap target optimization */
+@media (max-width:768px){
+a,button{min-height:44px;}
+.footer-col ul li a{min-height:36px;display:flex;align-items:center;}
+.utility-bar a{min-height:36px;display:flex;align-items:center;justify-content:center;}
+.whatsapp-float{min-height:48px;min-width:48px;}
+.btn-solid,.btn-outline{min-height:48px;padding:14px 24px;font-size:1rem;}
+.patient-card{margin-bottom:16px;}
+.patients-grid{gap:16px;}
+.section-title{font-size:1.4rem;line-height:1.3;}
+.section-subtitle{font-size:0.9rem;}
+h1{font-size:1.6rem;}
+h2{font-size:1.35rem;}
+h3{font-size:1.15rem;}
+p{font-size:0.95rem;line-height:1.7;}
+li{font-size:0.92rem;}
+.container{padding:0 16px;}
+section{padding:48px 0;}
+}
+
+/* Prevent horizontal scroll on mobile */
+html,body{overflow-x:hidden;max-width:100vw;}
+img{max-width:100%;height:auto;}
+
+/* Smooth mobile scrolling */
+html{-webkit-overflow-scrolling:touch;scroll-behavior:smooth;}
+
+/* Prevent text size adjustment on orientation change */
+body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+
+/* Fix 100vh issue on mobile browsers */
+.hero{min-height:100vh;min-height:100svh;}
+
+/* Touch-friendly hover states */
+@media(hover:none){
+.btn-solid:hover,.btn-outline:hover{transform:none;}
+a:hover{color:inherit;}
+}
+
 </style>
     <link rel="stylesheet" href="/css/styles.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/css/styles.css"></noscript>
@@ -933,6 +973,46 @@ img[width][height]{aspect-ratio:auto;}
 section{min-height:100px;}
 
 main{display:block;}
+
+/* Mobile tap target optimization */
+@media (max-width:768px){
+a,button{min-height:44px;}
+.footer-col ul li a{min-height:36px;display:flex;align-items:center;}
+.utility-bar a{min-height:36px;display:flex;align-items:center;justify-content:center;}
+.whatsapp-float{min-height:48px;min-width:48px;}
+.btn-solid,.btn-outline{min-height:48px;padding:14px 24px;font-size:1rem;}
+.patient-card{margin-bottom:16px;}
+.patients-grid{gap:16px;}
+.section-title{font-size:1.4rem;line-height:1.3;}
+.section-subtitle{font-size:0.9rem;}
+h1{font-size:1.6rem;}
+h2{font-size:1.35rem;}
+h3{font-size:1.15rem;}
+p{font-size:0.95rem;line-height:1.7;}
+li{font-size:0.92rem;}
+.container{padding:0 16px;}
+section{padding:48px 0;}
+}
+
+/* Prevent horizontal scroll on mobile */
+html,body{overflow-x:hidden;max-width:100vw;}
+img{max-width:100%;height:auto;}
+
+/* Smooth mobile scrolling */
+html{-webkit-overflow-scrolling:touch;scroll-behavior:smooth;}
+
+/* Prevent text size adjustment on orientation change */
+body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+
+/* Fix 100vh issue on mobile browsers */
+.hero{min-height:100vh;min-height:100svh;}
+
+/* Touch-friendly hover states */
+@media(hover:none){
+.btn-solid:hover,.btn-outline:hover{transform:none;}
+a:hover{color:inherit;}
+}
+
 </style>
     <link rel="stylesheet" href="/css/styles.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/css/styles.css"></noscript>
