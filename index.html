@@ -119,6 +119,68 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 a:hover{color:inherit;}
 }
 
+/* HOMEPAGE MOBILE FIXES */\
+@media (max-width:768px){\
+  [style*="grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr !important;}\
+  [style*="grid-template-columns:1fr 1.2fr"]{grid-template-columns:1fr !important;gap:24px !important;}\
+  [style*="grid-template-columns:repeat(2,1fr)"]{grid-template-columns:1fr !important;}\
+  [style*="grid-template-columns:1fr 1fr 1fr"]{grid-template-columns:1fr !important;}\
+  [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;}\
+  [style*="grid-template-columns: 2fr 1fr"]{grid-template-columns:1fr !important;}\
+  .hero h1{font-size:1.6rem !important;}\
+  .hero .hero-tagline{font-size:0.95rem !important;}\
+  .hero .hero-italic{font-size:1rem !important;}\
+  .hero-buttons{flex-direction:column !important;width:100% !important;}\
+  .hero-buttons .btn-solid,.hero-buttons .btn-outline{width:100% !important;text-align:center !important;}\
+  .feature-panels{grid-template-columns:1fr !important;}\
+  .feature-panel{border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.15) !important;}\
+  .feature-panel:last-child{border-bottom:none !important;}\
+  .trust-strip .container{flex-wrap:wrap !important;justify-content:center !important;}\
+  .trust-strip .trust-item{flex:0 0 45% !important;}\
+  .stats-bar .container{grid-template-columns:repeat(2,1fr) !important;gap:16px !important;}\
+  .stat-num{font-size:1.8rem !important;}\
+  .section-title{font-size:1.4rem !important;}\
+  .section-subtitle{font-size:0.9rem !important;margin-bottom:24px !important;}\
+  .about-grid{grid-template-columns:1fr !important;gap:32px !important;}\
+  .clinic-grid{grid-template-columns:1fr !important;}\
+  .profile-card .profile-image-wrap img{height:260px !important;}\
+  .hero{padding:60px 0 60px !important;}\
+  .hero::before{background:linear-gradient(135deg,rgba(15,23,42,0.96) 0%,rgba(15,23,42,0.92) 60%,rgba(13,148,136,0.75) 100%) !important;}\
+  .utility-bar .utility-left{gap:8px !important;font-size:0.7rem !important;}\
+  .header-inner{padding:10px 14px !important;}\
+  .header-phone{padding:8px 12px !important;font-size:0.78rem !important;}\
+  .header-consult{padding:6px 12px !important;font-size:0.72rem !important;}\
+  .site-logo img{width:36px !important;height:36px !important;}\
+  .site-logo .logo-name{font-size:1rem !important;}\
+  .site-logo .logo-sub{font-size:0.6rem !important;}\
+  .social-sidebar{display:none !important;}\
+}\
+@media (max-width:480px){\
+  .hero h1{font-size:1.3rem !important;}\
+  .hero .hero-tagline{font-size:0.8rem !important;}\
+  .hero .hero-italic{font-size:0.85rem !important;}\
+  .stats-bar .container{grid-template-columns:repeat(2,1fr) !important;gap:12px !important;}\
+  .stat-num{font-size:1.4rem !important;}\
+  .stat-label{font-size:0.7rem !important;}\
+  .trust-strip .trust-item{flex:0 0 100% !important;}\
+  .section-title{font-size:1.15rem !important;}\
+  .section-subtitle{font-size:0.85rem !important;}\
+  .btn-solid,.btn-outline{padding:12px 24px !important;font-size:0.95rem !important;}\
+  .utility-bar{font-size:0.65rem !important;}\
+  .utility-bar .utility-left{gap:4px !important;}\
+  .header-phone{padding:6px 10px !important;font-size:0.7rem !important;}\
+  .header-consult{display:none !important;}\
+  .feature-panel{padding:18px 16px !important;}\
+  .feature-panel .panel-icon{width:40px !important;height:40px !important;}\
+  .feature-panel h3{font-size:0.9rem !important;}\
+  .feature-panel p{font-size:0.75rem !important;}\
+}\
+@media (max-width:360px){\
+  .hero h1{font-size:1.1rem !important;}\
+  .stats-bar .container{grid-template-columns:1fr !important;}\
+  .header-phone{font-size:0.62rem !important;padding:5px 8px !important;}\
+  .site-logo .logo-name{font-size:0.85rem !important;}\
+}
 </style>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="preload" as="image" href="/images/picasso-dental-lasers.jpg" fetchpriority="high">
