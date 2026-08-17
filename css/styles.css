@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* ==========================================================================
    Base44 Modern Clean Design System
@@ -6,25 +6,34 @@
    ========================================================================== */
 
 :root {
-  /* Color Palette */
-  --primary: #1F9589;
-  --primary-hover: #115E5A;
-  --primary-light: #F0FDFA;
-  --teal: #1F9589;
-  --teal-hover: #115E5A;
-  --teal-light: #F0FDFA;
-  --dark-navy: #0f172a;
-  --heading: #0f172a;
-  --body-text: #475569;
-  --muted-text: #94a3b8;
-  --light-bg: #f7fafc;
-  --border-color: #e2e8f0;
+  /* Color Palette — Base44 App Theme */
+  --background: #F8FBFB;
+  --foreground: #172B30;
+  --card: #FFFFFF;
+  --primary: #1B9C91;
+  --primary-hover: #0D5B5B;
+  --primary-light: #E8F1F1;
+  --secondary: #E8F1F1;
+  --secondary-foreground: #1D373D;
+  --muted: #E9F1F1;
+  --muted-foreground: #5C747A;
+  --accent: #379E6E;
+  --teal: #1B9C91;
+  --teal-hover: #0D5B5B;
+  --teal-light: #E8F1F1;
+  --dark-navy: #172B30;
+  --heading: #172B30;
+  --body-text: #5C747A;
+  --muted-text: #7A8C92;
+  --light-bg: #F8FBFB;
+  --border-color: #D4E1E1;
   --white: #ffffff;
   --green: #10B981;
   --green-hover: #059669;
+  --radius: 0.5rem;
 
   /* Typography */
-  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Fraunces', Georgia, serif;
   --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Spacing & Layout */
@@ -35,9 +44,9 @@
   --radius-pill: 50px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 20px rgba(15, 23, 42, 0.05);
-  --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 1px 3px rgba(23, 43, 48, 0.05);
+  --shadow-md: 0 4px 20px rgba(23, 43, 48, 0.05);
+  --shadow-lg: 0 10px 30px rgba(23, 43, 48, 0.08);
 
   /* Transitions */
   --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -683,7 +692,7 @@ input[type="submit"]:hover, button[type="submit"]:hover {
   content: '' !important;
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.85) 50%, rgba(31,149,137,0.6) 100%);
+  background: linear-gradient(135deg, rgba(23,43,48,0.92) 0%, rgba(23,43,48,0.85) 50%, rgba(27,156,145,0.6) 100%);
   z-index: 1;
 }
 
@@ -1194,7 +1203,7 @@ input[type="submit"]:hover, button[type="submit"]:hover {
   font-size: 0.9rem;
   color: var(--white) !important;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.15);
+  box-shadow: 0 4px 15px rgba(23, 43, 48, 0.15);
   transition: var(--transition);
   cursor: pointer;
   border: none;
@@ -1202,7 +1211,7 @@ input[type="submit"]:hover, button[type="submit"]:hover {
 
 .floating-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.2);
+  box-shadow: 0 8px 25px rgba(23, 43, 48, 0.2);
 }
 
 .floating-btn.talk-now {
@@ -1275,7 +1284,7 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, select {
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus,
 input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus, select:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(31, 149, 137, 0.15);
+  box-shadow: 0 0 0 3px rgba(27, 156, 145, 0.15);
 }
 
 .form-row {
