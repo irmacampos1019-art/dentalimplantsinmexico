@@ -113,6 +113,6 @@ No backend server needed — the form uses a public API endpoint.
 
 ## Phone & Contact
 - Phone: 928-374-4575
-- Email: info@dentalimplantsinmexico.info
+- Email: irma@dentalimplantsinmexico.info
 - WhatsApp: https://wa.me/19283744575
-- Address: Av. B y Calle 2da, Los Algodones, Baja California, Mexico 21970
+- Address: Av. Internacional S/N, Los Algodones, Baja California, Mexico 21970
