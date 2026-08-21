@@ -100,7 +100,6 @@ dentalimplantsinmexico/
 6. Update DNS as Vercel instructs
 
 ## Lead Capture
-## Lead Capture
 The contact form on this site submits to:
 `/api/lead`
 
