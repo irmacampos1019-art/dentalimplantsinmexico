@@ -100,8 +100,20 @@ dentalimplantsinmexico/
 6. Update DNS as Vercel instructs
 
 ## Lead Capture
+## Lead Capture
 The contact form on this site submits to:
-`https://lyra-52971c5e.base44.app/functions/captureLead`
+`/api/lead`
+
+The `/api/lead` Vercel serverless function securely sends new leads to HubSpot CRM.
+
+
+This endpoint:
+- Creates a CRM contact record
+- Triggers automated welcome email
+- Schedules follow-up tasks (Day 1, 3, 7)
+- Logs the communication
+
+No backend server needed — the form uses a public API endpoint.
 
 This endpoint:
 - Creates a CRM contact record
